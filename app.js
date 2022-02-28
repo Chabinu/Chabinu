@@ -1,13 +1,20 @@
+
+
+// 모듈 정의 --------------------------------------------------------------------------
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mysql = require('mysql');
+
 
 
 // 미들웨어 변수로 정의 --------------------------------------------------------------------------
 const indexRouter = require('./routes/index');
 const managerLoginRouter = require('./routes/login/manager');
+
+
 
 const app = express();
 
