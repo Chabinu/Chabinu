@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차비누 매니저</title>
+
+  <!-- BootStrap v5.1 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="/stylesheets/commonStyle.css"> -->
+  <!-- <link rel="stylesheet" href="../../public/stylesheets/style.css"> -->
+
+  <link rel="stylesheet" href="../public/stylesheets/commonStyle.css">
+  <link rel="stylesheet" href="../public/stylesheets/manager.css">
+
+</head>
+<body>
+
+  <div class="container-fluid no-padding no-margin vh-100">
+    
+    <!-- 헤더 영역(내비바) -->
+    <nav class="nav d-flex align-items-center justify-content-between vw-100 stiky-top" style="height: 50px; border: 1px solid black; background-color: lightgray;">
+
+      <!-- 회사 로고 -->
+      <div class="header-logo mx-3">
+        CHABINU
+      </div>
+
+      <!-- 매니저 메뉴 부분 -->
+      <div>
+
+      </div>
+
+    </nav>
+
+    <div class="workInfo" >
+
+      <!-- 차량 등록/수정 부분 -->
+      <div class="addCar p-4">
+
+        <h2 class="h2 fw-bold mb-3">작업차량 등록하기</h2>
+
+        <!-- method, action 수정하기 -->
+        <form>
+
+          <!-- 차량 번호 input + ajax로 차량번호 조회되도록 -->
+          <div class="cleaningMenu carNo-input">
+            차량 번호  <input type="text" id="carNo" name="carNo" autocomplete="off">
+          </div>
+
+          <!-- 세차 input-radio -->
+          <div class="cleaningMenu">
+            세차 : 
+
+            <table>
+
+              <tr>
+                <td>
+                  <input type="radio" name="cleaning" id="cleaning-inOut" value="1" checked>
+                  <label for="cleaning-inOut">실내/실외</label>
+                </td>
+                <td>
+                  <input type="radio" name="cleaning" id="cleaning-out" value="2">
+                  <label for="cleaning-out">실외</label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="radio" name="cleaning" id="cleaning-in" value="3">
+                  <label for="cleaning-in">실내</label>
+                </td>
+                <td>
+                  <input type="radio" name="cleaning" id="cleaning-false" value="4">
+                  <label for="cleaning-false">해당없음</label>
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+
+          <!-- 소독 -->
+          <div class="cleaningMenu">
+            소독 : 
+
+            <table>
+
+              <tr>
+                <td>
+                  <input type="radio" name="sanitize" id="sanitize-true" value="1">
+                  <label for="sanitize-true">완료</label>
+                </td>
+                <td>
+                  <input type="radio" name="sanitize" id="sanitize-false" value="2" checked>
+                  <label for="sanitize-false">해당없음</label>
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+
+          <!-- 광택 -->
+          <div class="cleaningMenu">
+            광택 : 
+
+            <table>
+
+              <tr>
+                <td>
+                  <input type="radio" name="polishing" id="polishing-true" value="1">
+                  <label for="polishing-true">완료</label>
+                </td>
+                <td>
+                  <input type="radio" name="polishing" id="polishing-false" value="2" checked>
+                  <label for="polishing-false">해당없음</label>
+                </td>
+              </tr>
+
+            </table>
+
+          </div>
+
+
+          <!-- 혹시 더 추가할 부분이 있으면 추가 -->
+
+
+          <!-- 버튼 영역 -->
+          <div class="cleaningMenu">
+            <button class="btn btn-warning" type="reset">
+              초기화
+            </button>
+  
+            <button id="add-car-button" class="btn btn-success fw-bold" type="button" onclick="addCar();">
+              차량추가
+            </button>
+          </div>
+          
+        </form>
+
+      </div>
+
+      <hr>
+
+
+      <!-- 추가한 리스트를 임시 저장하려면?? 세션? -->
+
+
+      <!-- 추가한 차량 리스트 영역 -->
+      <div class="addCarList d-flex flex-column">
+        
+        <!-- 추가 차량 -->
+        <!-- <div class="car-item d-flex flex-row">
+
+          <div class="col-8">
+            
+            <div>
+              차량번호 :
+            </div>
+            
+            <div>
+              세차 : 
+            </div>
+            
+            <div>
+              소독 : 
+            </div>
+
+            <div>
+              광택 : 
+            </div>
+
+          </div>
+
+          <div class="col-4 d-flex flex-column justify-content-center">
+            <button class="carBtn btn-success">수정</button>
+            <button class="carBtn btn-danger">제거</button>
+          </div>
+
+        </div> -->
+
+      </div>
+
+
+      <!-- 작업 시작 버튼 -->
+      <!-- 작업 시작 버튼을 누르면 수정 및 제거가 불가능합니다 경고 출력 -->
+      <div>
+
+        <button type="button" onclick="startCleaning();">작업 시작</button>
+        
+      </div>
+
+
+
+    </div>
+
+
+    
+   
+  <!-- 전체 영역 끝 -->
+  </div>
+
+
+
+  <!-- BootStrap v5.1 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="../public/js/workList.js"></script>
+
+</body>
+</html>
