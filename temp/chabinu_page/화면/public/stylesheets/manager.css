@@ -3,7 +3,6 @@
 
 /* 버튼 */
 .c-btn{
-
   min-width: 150px;
   max-width: 200px;
   height: 50px;
@@ -16,18 +15,21 @@
   font-size: 18px;
 
   background-color: lightgray;
-
-
-
 }
 
 /* 버튼 hover 시 */
 .c-btn:hover{
+  background-color: gray;
   color: #FFFFFF;
 }
 
 
-/* ------------------- 매니저 메인페이지 ------------------- */
+
+
+
+
+
+/* ------------------- 매니저 메인페이지 (mainPage) ------------------- */
 
 /* 공지사항 + 작업시작 버튼 영역 */
 .noticeWrapper{
@@ -38,10 +40,10 @@
   margin: auto;
   padding: 30px;
 }
-
 .noticeWrapper p{
   padding: 10px;
 }
+
 
 /* 매니저 작업 목록 영역 */
 .myWorkList{
@@ -53,13 +55,12 @@
 }
 
 
-/* ------------------- 작업 메인페이지 ------------------- */
+/* ------------------- 작업 메인페이지(workMain) ------------------- */
 
 /* 작업 카테고리 */
 .categoryMenu{
   margin: 15px;
-  min-width: 150px;
-  max-width: 200px;
+  width: 200px;
   height: 40px;
   background-color: lightgray;
   border-radius: 5px;
@@ -70,26 +71,59 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
-
 .categoryMenu > span{
   cursor: pointer;
   user-select: none;
 }
-
 .categoryMenu:hover{
   background-color: gray;
   color: #FFFFFF;
 }
-
 .categoryWrapper{
   margin-top: 100px;
 }
+.categoryMenu > a{ display: block; width: 100%; height: 100%; line-height: 38px;}
+.categoryMenu > a:hover{color: white;}
+.biz-wrapper a:hover{color: white;}
+.biz-wrapper{
+  width: 200px;
+  background-color: lightgray;
+  margin-bottom: 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.biz-wrapper li{width: 100%; height: 40px;}
+.biz-company{
+  display: block;
+  height: 100%; width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 38px;
+}
+.biz-wrapper li:hover{
+  background-color: gray;
+}
+
+/* 콜랩스 메뉴 */
+.collpase-true{
+  margin-bottom: 0;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.display-none{display: none;}
 
 
-/* 작업 시작 페이지 */
 
+/* ------------------- 작업 세팅 페이지(workSetting) ------------------- */
 
+.workInfo{
+  width: 80%;
+  min-width: 300px;
+  max-width: 800px;
+  margin: auto;
+}
 
 
 /* 차량 등록 메뉴 */
@@ -112,5 +146,103 @@
   padding: 5px;
   margin-top: 10px;
 }
+
+
+
+
+/* ------------------- 작업 수행 페이지(workListPage) ------------------- */
+
+/* 추가해 놓은 차량 정보를 기반으로 리스트 페이지 로드  */
+/* 해당 박스를 클릭하면 사진 업로드가 가능한 세차 상세 페이지로 이동 */
+
+/* 작업 페이지 전체 */
+.workListArea{
+  border: 1px solid black;
+  height: 800px;
+  
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  padding: 10px;
+}
+
+/* 대분류 카테고리 (법인, 개인, 행사) */
+.workCategory{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  user-select: none;
+}
+
+/* 작업 리스트 영역 */
+.workListWrapper{
+  width: 100%;
+}
+
+/* 차량 정보 낱개 영역 */
+.workBox div{
+  border: 1px solid black;
+}
+
+.photoSquare{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.photoSquare > img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.carInfo-table{
+  table-layout: fixed;
+}
+
+
+
+
+
+
+
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 768px) {
+
+  .workListArea{
+    width: 100%;
+  }
+
+  .workCategory{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .workBox div{
+    /* height: 80px; */
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------- 세차 상세 페이지(workDetail) ------------------- */
+
+/* 사진 업로드, 캐러셀(슬라이드), 파일명 저장 잘 하기, 법인 종류별로 요구 사진 다르게 */
+
+/* 사진 예시 미리보기 */
+
 
 

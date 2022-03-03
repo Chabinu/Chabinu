@@ -1,6 +1,8 @@
 
+// 자동차 리스트 저장 배열
 carList = [];
 
+// 자동차 객체
 car = {
   'carNo' : carNo,
   'cleaning' : cleaning,
@@ -111,8 +113,12 @@ function deleteCar(e){
 function startCleaning(){
 
   if(confirm('시작버튼을 누른 후에는 수정 및 제거가 불가능합니다.')){
-    location.href = 'loginPage.html';
+    
+    location.href = 'workList.html';
+
   }
 
 
-}
+};
+
+

@@ -24,7 +24,7 @@
       
       <!-- navbar 회사로고 -->
       <div class="navbar__logo">
-        <a href="#">CHABINU</a>
+        <a href="mainPage.html">CHABINU</a>
       </div>
 
       <!-- navbar 메뉴 -->
@@ -50,25 +50,25 @@
 
       </div>
   
-      <div class="dropdown">
-        <button class="categoryMenu dropdown-toggle" type="button" id="biz-client" data-bs-toggle="dropdown" aria-expanded="false">
-          법인고객
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="workList.html">일반 법인</a></li>
-          <li><a class="dropdown-item" href="workList.html">Coupang(쿠팡)</a></li>
-          <li><a class="dropdown-item" href="workList.html">HomePlus(홈플러스)</a></li>
-          <li><a class="dropdown-item" href="workList.html">RedCap(레드캡)</a></li>
+      <div id="biz-menu" class="categoryMenu collapsible d-flex flex-column">
+        법인고객
+      </div>
+      <div class="biz-wrapper display-none">
+        <ul class="biz-company-list">
+          <li><a class="biz-company" href="workSetting.html">일반 법인</a></li>
+          <li><a class="biz-company" href="workSetting.html">Coupang(쿠팡)</a></li>
+          <li><a class="biz-company" href="workSetting.html">HomePlus(홈플러스)</a></li>
+          <li><a class="biz-company" href="workSetting.html">RedCap(레드캡)</a></li>
         </ul>
       </div>
 
 
       <div class="categoryMenu">
-        <a href="workList.html">개인고객</a>
+        <a href="workSetting.html">개인고객</a>
       </div>
   
       <div class="categoryMenu">
-        <a href="workList.html">행사</a>
+        <a href="workSetting.html">행사</a>
       </div>
   
     </div>
@@ -84,6 +84,7 @@
 
   <!-- User Script -->
   <script src="../public/js/main.js"></script>
+  <script src="../public/js/workMain.js"></script>
 
 </body>
 </html>
