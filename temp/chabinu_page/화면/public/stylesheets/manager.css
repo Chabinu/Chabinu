@@ -158,10 +158,10 @@
 /* 작업 페이지 전체 */
 .workListArea{
   border: 1px solid black;
-  height: 800px;
   
   width: 80%;
   max-width: 800px;
+  min-height: 500px;
   margin: auto;
   padding: 10px;
 }
@@ -197,6 +197,14 @@
 
 .carInfo-table{
   table-layout: fixed;
+}
+
+.clean-status{
+  height: 100%;
+}
+
+.clean-complete{
+  /* background-color: green; */
 }
 
 
