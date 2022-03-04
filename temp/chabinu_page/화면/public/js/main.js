@@ -13,14 +13,30 @@ toggleBtn.addEventListener("click", function(){
 
 // 사진 슬라이드
 // Swiper JS
-const swiper = new Swiper('.swiper', {
+new Swiper('.swiper1', {
   // Optional parameters
-  loop: true,
+  loop: false,
 
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
-    type : 'bullets',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+});
+
+new Swiper('.swiper2', {
+  // Optional parameters
+  loop: false,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
   },
 
   // Navigation arrows
