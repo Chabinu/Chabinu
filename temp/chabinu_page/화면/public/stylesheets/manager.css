@@ -23,6 +23,10 @@
   color: #FFFFFF;
 }
 
+th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 
 
 
@@ -115,8 +119,8 @@
 .display-none{display: none;}
 
 
-
 /* ------------------- 작업 세팅 페이지(workSetting) ------------------- */
+
 
 .workInfo{
   width: 80%;
@@ -203,15 +207,14 @@
   height: 100%;
 }
 
-.clean-complete{
-  /* background-color: green; */
+.workSubmitBtn{
+  margin-top: 20px; width: 100%; height: 50px; font-size: 20px; font-weight: bold; letter-spacing: 0.5rem; line-height: 48px; cursor: pointer; background-color: lightgray;
 }
 
-
-
-
-
-
+.workSubmitBtn:hover{
+  color: #FDFDFD;
+  background-color: gray;
+}
 
 /* 모바일 반응형 영역 */
 @media screen and (max-width : 768px) {
@@ -225,17 +228,42 @@
     margin-bottom: 20px;
   }
 
-  .workBox div{
-    /* height: 80px; */
-  }
-
 }
 
 
 
+/* 세차 상세 페이지 (workDetail) */
+
+.photoArea{
+
+}
+
+.swiper{
+  width: 16rem;
+  height: 9rem;
+  border: 1px solid black;
+}
+
+.swiper-slide > img{
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
 
 
+/* workDetail Responsive CSS */
+@media screen and (max-width : 768px) {
 
+  .photoArea > div{
+    text-align: center;
+  }
+
+}
 
 
 
@@ -252,5 +280,71 @@
 
 /* 사진 예시 미리보기 */
 
+textarea{
+  outline: none;
+}
 
 
+
+
+/* work1.html */
+
+.deleteImg {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: rgba(50, 50, 50, 0.2);
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.deleteImg:hover {
+	background-color: rgba(50, 50, 50, 0.3);
+}
+
+.boardImg {
+	cursor: pointer;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ced4da;
+	position: relative;
+}
+
+.thubnail {
+	width: 300px;
+	height: 300px;
+}
+
+.boardImg>img {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.insert-label {
+	display: inline-block;
+	width: 80px;
+	line-height: 40px
+}
+
+#fileArea {
+	display: none;
+}
+
+.boardImg a{
+	position : absolute;
+	bottom: 0;
+	right: 0;
+}
