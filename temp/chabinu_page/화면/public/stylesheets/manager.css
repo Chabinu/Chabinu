@@ -24,18 +24,44 @@
 }
 
 th, td{
-  border: 1px solid black;
+  border: 1px solid lightgray;
   border-collapse: collapse;
 }
 
 
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 768px) {
 
+
+}
 
 
 
 /* ------------------- 매니저 메인페이지 (mainPage) ------------------- */
 
 /* 공지사항 + 작업시작 버튼 영역 */
+.startBtn{
+  min-width: 150px;
+  max-width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+
+  margin: 20px;
+  margin-bottom: 0;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+
+  background-color: #ff6c6c;
+}
+.startBtn:hover{
+  background-color: #F05454;
+}
+
+.noticeTitle{ color: #F05454; margin: 20px 0;}
+
 .noticeWrapper{
   display: flex;
   flex-direction: column;
@@ -47,6 +73,37 @@ th, td{
 .noticeWrapper p{
   padding: 10px;
 }
+
+.noticeArea{padding: 10px; margin: auto; text-align: center;}
+.noticeTable{
+  max-width: 800px;
+  margin: auto;
+  table-layout: fixed;
+  padding: 1.5rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.boardTitle{
+  text-align: start;
+}
+
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 499px) {
+
+  .noticeTable{
+    font-size: 0.8rem;
+  }
+
+  .workCategory{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+
 
 
 /* 매니저 작업 목록 영역 */
