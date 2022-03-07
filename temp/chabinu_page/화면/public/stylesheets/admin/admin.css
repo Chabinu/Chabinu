@@ -1,0 +1,96 @@
+
+/* 메인 컨테이너 */
+.mainContainer{
+  
+  width: 100vw; 
+  height: 100vh;
+  position: relative;
+  display: flex;
+  
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+/* 사이드바 영역 */
+.sidebarArea{
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  border: 1px solid black;
+}
+
+.sidebarHeader{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 60px;
+
+  border: 1px solid black;
+
+}
+
+/* 사이드메뉴 닫기 버튼 */
+.menuCloseBtn{
+  cursor: pointer; display: none;
+}
+
+.sidebarBody{
+  /* margin: 1rem 0; */
+  padding: 1rem;
+}
+
+/* 상위 메뉴 */
+.adminMenuList > li{
+  width: 100%;
+  min-height: 2.5rem;
+  
+  padding: 0.5rem;
+  font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 하위 메뉴 */
+.adminMenuList > li > ul{
+  margin-bottom: 0.5rem;
+}
+.adminMenuList > li li{
+  height: 2rem;
+  padding: 0.5rem;
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+
+/* 본문 내용 영역 */
+.contentArea{
+
+  padding:60px 0 0 250px;
+  border: 1px solid red;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+/* 모바일 반응형 */
+@media screen and (max-width : 768px) {
+
+  .sidebarHeader{
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .menuCloseBtn{
+    display: block;
+  }
+
+}
