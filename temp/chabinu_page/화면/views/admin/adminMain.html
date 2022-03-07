@@ -12,7 +12,7 @@
   <!-- <link rel="stylesheet" href="../../public/stylesheets/style.css"> -->
 
   <link rel="stylesheet" href="../../public/stylesheets/commonStyle.css">
-  <!-- <link rel="stylesheet" href="../../public/stylesheets/admin/adminListPage.css"> -->
+  <link rel="stylesheet" href="../../public/stylesheets/admin/admin.css">
 
 </head>
 
@@ -28,22 +28,29 @@
    -->
 
   <!-- 메인 컨테이너 -->
-  <div class="container-fluid row vh-100 vw-100 border no-gutters no-padding m-auto">
+  <div class="mainContainer">
 
     <!-- 사이드 메뉴 영역 -->
-    <div class="col col-md-3 col-lg-2 d-none d-md-block bg-light no-padding">
+    <nav class="sidebarArea">
 
       <!-- 회사 로고 -->
-      <div>
-        CHABINU
+      <div class="sidebarHeader">
+        
+        <span>
+          CHABINU
+        </span>
+        <span class="menuCloseBtn">
+          X
+        </span>
+
       </div>
 
       <!-- 사이드 메뉴 리스트 -->
-      <div>
+      <div class="sidebarBody">
 
-        <ul>
+        <ul class="adminMenuList">
 
-          <li class="m-2 fs-4">
+          <li>
 
             <a class="link-dark collapsed" data-bs-toggle="collapse" data-bs-target="#car-menu" aria-expanded="false">세차 관리</a>
 
@@ -53,7 +60,7 @@
 
           </li>
 
-          <li class="m-2 fs-4">
+          <li>
 
             <a class="link-dark collapsed" data-bs-toggle="collapse" data-bs-target="#client-menu" aria-expanded="false">고객 관리</a>
 
@@ -64,7 +71,7 @@
 
           </li>
 
-          <li class="m-2 fs-4">
+          <li>
 
             <a class="link-dark collapsed" data-bs-toggle="collapse" data-bs-target="#manager-menu" aria-expanded="false">매니저 관리</a>
 
@@ -81,10 +88,18 @@
 
 
 
-    </div>
+    </nav>
+
+    <!-- 상단 헤더 -->
+    <header>
+      
+
+    </header>
 
     <!-- 본문 내용 영역 (상단 로그아웃 버튼, 검색, 표) -->
-    <div class="col no-padding">
+    <div class="contentArea">
+
+
 
     </div>
 
