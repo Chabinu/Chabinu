@@ -87,11 +87,11 @@ input{
   height: 60px; 
   padding: 1rem;
   display: flex; align-items: center; justify-content: flex-end; 
-  background-color: #0011ffb7; 
+  background-color: #406882; 
 }
 .menuIcon{display: none; cursor: pointer;}
 .settingIcon{cursor: pointer;}
-.headerLogo{display: none;}
+.headerLogo{display: none; user-select: none; font-size: 1.5rem; font-weight: 500;}
 .contentBody{
   width: 100%;
   padding-left: 250px;
