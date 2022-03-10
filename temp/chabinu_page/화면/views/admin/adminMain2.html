@@ -30,12 +30,12 @@
         <!-- 사이드 헤더 -->
         <div class="sidebarHeader">
           
-          <span>
+          <div>
             CHABINU
-          </span>
-          <span class="menuCloseBtn">
-            X
-          </span>
+          </div>
+          <div class="menuCloseBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" fill="#FDFDFD"/></svg>
+          </div>
   
         </div>
   
@@ -52,8 +52,17 @@
           <div class="headerLogo" style="color: white;">CHABINU</div>
 
           <!-- 로그아웃 아이콘 -->
-          <div class="settingIcon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" fill="#FDFDFD"/></svg>
+          <div class="settingIcon dropdown">
+            <button class="btn" type="button" id="settingBtn" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" fill="#FDFDFD"/></svg>
+            </button>
+
+            <ul class="dropdown-menu settingMenuList" aria-labelledby="settingBtn">
+              <li>
+                <a class="dropdown-item no-padding settingMenu" href="#">로그아웃 (Logout)</a>
+              </li>
+            </ul>
+
           </div>
           
         </div>
@@ -65,42 +74,58 @@
   
         <!-- 사이드 메뉴 -->
         <div class="sidebarBody">
-  
-          <ul class="adminMenuList">
-  
-            <li>
-  
-              <a class="link-dark collapsed" data-bs-toggle="collapse" data-bs-target="#car-menu" aria-expanded="false">세차 관리</a>
-  
-              <ul class="collapse" id="car-menu">
-                <li><a class="car-item link-dark fs-6" href="">세차 내역 조회</a></li>
-              </ul>
-  
-            </li>
-  
-            <li>
-  
-              <a class="link-dark collapsed" data-bs-toggle="collapse" data-bs-target="#client-menu" aria-expanded="false">고객 관리</a>
-  
-              <ul class="collapse" id="client-menu">
-                <li><a class="car-item link-dark fs-6" href="">고객 정보 조회</a></li>
-                <li><a class="car-item link-dark fs-6" href="">고객 정보 추가</a></li>
-              </ul>
-  
-            </li>
-  
-            <li>
-  
-              <a class="link-dark collapsed" data-bs-toggle="collapse" data-bs-target="#manager-menu" aria-expanded="false">매니저 관리</a>
-  
-              <ul class="collapse" id="manager-menu">
-                <li><a class="car-item link-dark fs-6" href="">매니저 정보 조회</a></li>
-                <li><a class="car-item link-dark fs-6" href="">매니저 정보 추가</a></li>
-              </ul>
-  
-            </li>
-  
-          </ul>
+          
+          <div class="menuWrapper">
+
+            <ul class="adminMenuList">
+    
+              <li>
+    
+                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#car-menu" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" fill="#FDFDFD"/></svg>
+                  &nbsp;
+                  세차 관리
+                </a>
+    
+                <ul class="collapse" id="car-menu">
+                  <li><a class="car-item fs-6" href="">세차 내역 조회</a></li>
+                </ul>
+    
+              </li>
+    
+              <li>
+    
+                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#client-menu" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" fill="#FDFDFD"/></svg>
+                  &nbsp;
+                  고객 관리
+                </a>
+    
+                <ul class="collapse" id="client-menu">
+                  <li><a class="car-item fs-6" href="">고객 정보 조회</a></li>
+                  <li><a class="car-item fs-6" href="">고객 정보 추가</a></li>
+                </ul>
+    
+              </li>
+    
+              <li>
+    
+                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#manager-menu" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" fill="#FDFDFD"/></svg>
+                  &nbsp;
+                  매니저 관리
+                </a>
+    
+                <ul class="collapse" id="manager-menu">
+                  <li><a class="car-item fs-6" href="">매니저 정보 조회</a></li>
+                  <li><a class="car-item fs-6" href="">매니저 정보 추가</a></li>
+                </ul>
+    
+              </li>
+    
+            </ul>
+
+          </div>
   
         </div>
   
@@ -146,46 +171,50 @@
             </form>
 
 
-            <div class="resultArea" style="height: 1500px;">
+            <div class="table-responsive resultArea">
 
               <table class="table table-bordered table-hover">
 
                 <thead>
-                    <th>날짜</th>
-                    <th>생성일</th>
-                    <th>이름</th>
-                    <th>종류</th>
-                    <th>장소</th>
-                    <th>작업자</th>
+                    <th style="width: 100px;">날짜</th>
+                    <th style="width: 200px;">생성일</th>
+                    <th style="width: 150px;">이름</th>
+                    <th style="width: 100px;">종류</th>
+                    <th style="width: 400px;">장소</th>
+                    <th style="width: 100px;">작업자</th>
+                    <th style="width: 100px;">서명</th>
                 </thead>
 
                 <tbody>
 
                   <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
+                    <td>2022-03-10</td>
+                    <td>2022-03-10 15:22:14</td>
+                    <td>홈플러스</td>
+                    <td>Standard</td>
+                    <td>영등포 경찰서 영등포역 파출소</td>
+                    <td>김연준</td>
+                    <td>서명완료</td>
                   </tr>
   
                   <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
+                    <td>2022-03-10</td>
+                    <td>2022-03-10 15:22:14</td>
+                    <td>홈플러스</td>
+                    <td>Standard</td>
+                    <td>영등포 경찰서 영등포역 파출소</td>
+                    <td>김연준</td>
+                    <td>서명완료</td>
                   </tr>
   
                   <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
+                    <td>2022-03-10</td>
+                    <td>2022-03-10 15:22:14</td>
+                    <td>홈플러스</td>
+                    <td>Standard</td>
+                    <td>영등포 경찰서 영등포역 파출소</td>
+                    <td>김연준</td>
+                    <td>서명완료</td>
                   </tr>
 
                 </tbody>
@@ -213,6 +242,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="../../public/js/admin/admin.js"></script>
 
 </body>
 </html>
