@@ -116,38 +116,46 @@ body, table, th, td, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
 
 /* 헤더 스타일 */
 .navbar{
+	width: 100%;
+	min-height: 60px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 8px 12px;
-	border-bottom: 1px solid #323232;
+	padding: 0 1.5rem;
+	background-color: #1A374D;
+
+	position: fixed;
+	z-index: 1000;
+
 }
 
-.navbar__logo{font-size: 24px;}
-.navbar__logo > a{color : #323232}
-.navbar__menu{ display: flex; list-style: none; padding-left: 0;}
-.navbar__menu li{ padding: 10px 10px; font-weight: 500; font-size: 20px;}
-.navbar__menu li :hover {background-color: darkgray; border-radius: 4px; color: white;}
+.navbarHeader{height: 60px; display: flex; justify-content: space-between; align-items: center;}
+
+.navbar__logo{font-size: 1.5rem;}
+.navbar__logo > a{color : #FDFDFD}
+.navbar__menu{ display: flex; list-style: none; padding-left: 0; min-height: 60px; align-items: center;}
+
+.navbar__menu li{display: flex; align-items: center; padding: 0 10px; height: 100%; font-weight: 500; font-size: 20px;}
+.navbar__menu li > a{ color: #FDFDFD; height: 100%; padding: 0 0.25rem; display: flex; align-items: center;}
+.navbar__menu li :hover {background-color: #406882; border-radius: 4px; color: #FDFDFD;}
 
 .navbar__toggleBtn{
 	display: none;
-	position: absolute;
-	right: 32px;
-	font-size: 24px;
 }
 
 /* 모바일 헤더 */
 @media screen and (max-width : 768px) {
 
 	.navbar{
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 8px 24px;
+		padding: 0 1.5rem;
 	}
+
+	.navbarHeader{padding: 1rem; width: 100%; display: flex; justify-content: space-between;}
 
 	.navbar__menu{
 		display: none;
-		margin-top: 10px;
+		margin-top: 0.75rem;
+		padding-bottom: 0.5rem;
 		flex-direction: column;
 		align-items: center;
 		width: 100%;

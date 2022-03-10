@@ -21,26 +21,32 @@
 
     <!-- navbar 헤더 -->
     <nav class="navbar">
-      
+          
       <!-- navbar 회사로고 -->
-      <div class="navbar__logo">
-        <a href="mainPage.html">CHABINU</a>
+      <div class="navbarHeader">
+        <div class="navbar__logo">
+          <a href="mainPage.html">CHABINU</a>
+        </div>
+
+        <a href="#" class="navbar__toggleBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
+        </a>
       </div>
 
       <!-- navbar 메뉴 -->
       <ul class="navbar__menu">
         <li><a href="">홈으로</a></li>
+        <li><a href="">새작업</a></li>
+        <li><a href="">작업중</a></li>
+        <li><a href="">작업완료</a></li>
         <li><a href="loginPage.html">로그아웃</a></li>
       </ul>
 
-      <a href="#" class="navbar__toggleBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
-      </a>
-
     </nav>
 
+    <div class="mainContainer">
 
-    <!-- 로그인한 매니저의 작업 목록 출력 -->
+      <!-- 로그인한 매니저의 작업 목록 출력 -->
     <div class="container myWorkList">
 
       <h1 class="h2">나의 작업 목록</h1>
@@ -86,8 +92,9 @@
 
 
     </div>
-    
-    
+
+    </div>
+
     
   </div>
 

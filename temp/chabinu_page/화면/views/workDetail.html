@@ -26,133 +26,136 @@
     <nav class="navbar">
       
       <!-- navbar 회사로고 -->
-      <div class="navbar__logo">
-        <a href="mainPage.html">CHABINU</a>
+      <div class="navbarHeader">
+        <div class="navbar__logo">
+          <a href="mainPage.html">CHABINU</a>
+        </div>
+  
+        <a href="#" class="navbar__toggleBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
+        </a>
       </div>
 
       <!-- navbar 메뉴 -->
       <ul class="navbar__menu">
         <li><a href="">홈으로</a></li>
+        <li><a href="">새작업</a></li>
+        <li><a href="">작업중</a></li>
+        <li><a href="">작업완료</a></li>
         <li><a href="loginPage.html">로그아웃</a></li>
       </ul>
 
-      <a href="#" class="navbar__toggleBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
-      </a>
-
     </nav>
 
+    <!-- 내용 영역 -->
+    <div class="mainContainer">
 
-    <!-- 세차 상세 페이지 (사진 찍기) -->
-
-
-    <!-- 사진 영역 -->
-    <div class="photoArea">
-
-      <!-- 세차 전 사진 -->
-      <div class="">
-
-        <p>세차 전</p>
-
-        <!-- Slider main container -->
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+      <!-- 세차 상세 페이지 (사진 찍기) -->
+  
+      <!-- 사진 영역 -->
+      <div class="photoArea">
+  
+        <!-- 세차 전 사진 -->
+        <div class="">
+  
+          <p>세차 전</p>
+  
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+            </div>
+  
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+  
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+  
+            <!-- If we need scrollbar -->
+            <!-- <div class="swiper-scrollbar"></div> -->
           </div>
-
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
-
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-
-          <!-- If we need scrollbar -->
-          <!-- <div class="swiper-scrollbar"></div> -->
+  
+  
+  
+          <label for="beforePhoto">
+            <div class="d-flex align-items-center justify-content-center border border-primary border-3" style="width: 100px; height: 60px;">
+              촬영하기
+            </div>
+          </label>
+  
+          <input class="d-none" type="file" id="beforePhoto" name="beforePhoto" capture="camera" accept="image/*" onclick="uploadPhoto(event);"/>
+  
         </div>
-
-
-
-        <label for="beforePhoto">
-          <div class="d-flex align-items-center justify-content-center border border-primary border-3" style="width: 100px; height: 60px;">
-            촬영하기
-          </div>
-        </label>
-
-        <input class="d-none" type="file" id="beforePhoto" name="beforePhoto" capture="camera" accept="image/*" onclick="uploadPhoto(event);"/>
-
-      </div>
-      
-      <!-- 세차 후 사진 -->
-      <div>
-        <p>세차 후</p>
         
-        <!-- Slider main container -->
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide">Slide 1</div>
-            <div class="swiper-slide">Slide 2</div>
-            <div class="swiper-slide">Slide 3</div>
+        <!-- 세차 후 사진 -->
+        <div>
+          <p>세차 후</p>
+          
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+            </div>
+  
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+  
           </div>
-
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
-
+  
+  
+          <label for="afterPhoto">
+            <div class="d-flex align-items-center justify-content-center border border-primary border-3" style="width: 100px; height: 60px;">
+              촬영하기
+            </div>
+          </label>
+  
+          <input class="d-none" type="file" id="afterPhoto" name="afterPhoto" capture="camera" accept="image/*" onchange="uploadPhoto(event);"/>
+  
         </div>
-
-
-        <label for="afterPhoto">
-          <div class="d-flex align-items-center justify-content-center border border-primary border-3" style="width: 100px; height: 60px;">
-            촬영하기
-          </div>
-        </label>
-
-        <input class="d-none" type="file" id="afterPhoto" name="afterPhoto" capture="camera" accept="image/*" onchange="uploadPhoto(event);"/>
-
+  
+  
+        <!-- 카메라 스크립트 -->
+        <script>
+  
+          function uploadPhoto(e){
+            
+            var camera = e.target;
+  
+  
+            console.log(e.target);
+            
+            var photo = camera.previousElementSibling.previousElementSibling.children;
+            var file = e.target.files[0];
+            console.log(file);
+  
+            photo.src = URL.createObjectURL(file);
+            console.log(photo);
+  
+  
+          };
+  
+          // var camera = document.getElementById('camera');
+          // var photoFrame = document.getElementById('photoFrame');
+    
+          // camera.addEventListener('change', function(e){
+          //   var file = e.target.files[0];
+    
+          //   photoFrame.src = URL.createObjectURL(file);
+          // });
+    
+        </script>
+  
       </div>
-
-
-      <!-- 카메라 스크립트 -->
-      <script>
-
-        function uploadPhoto(e){
-          
-          var camera = e.target;
-
-
-          console.log(e.target);
-          
-          var photo = camera.previousElementSibling.previousElementSibling.children;
-          var file = e.target.files[0];
-          console.log(file);
-
-          photo.src = URL.createObjectURL(file);
-          console.log(photo);
-
-
-        };
-
-        // var camera = document.getElementById('camera');
-        // var photoFrame = document.getElementById('photoFrame');
-  
-        // camera.addEventListener('change', function(e){
-        //   var file = e.target.files[0];
-  
-        //   photoFrame.src = URL.createObjectURL(file);
-        // });
-  
-      </script>
-
-
-
-
-
 
     </div>
 
