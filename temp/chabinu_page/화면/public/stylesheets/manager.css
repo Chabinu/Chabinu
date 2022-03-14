@@ -36,6 +36,10 @@ th, td{
 }
 
 
+/* 헤더 밑 본문 영역 */
+.mainContainer{
+  padding-top: 60px;
+}
 
 /* ------------------- 매니저 메인페이지 (mainPage) ------------------- */
 
@@ -54,13 +58,13 @@ th, td{
   font-weight: 600;
   color: white;
 
-  background-color: #ff6c6c;
+  background-color: #1A374D;
 }
 .startBtn:hover{
-  background-color: #F05454;
+  background-color: #406882;
 }
 
-.noticeTitle{ color: #F05454; margin: 20px 0;}
+.noticeTitle{ color: #406882; margin: 20px 0; font-weight: 600; user-select: none;}
 
 .noticeWrapper{
   display: flex;
@@ -87,6 +91,10 @@ th, td{
 }
 .boardTitle{
   text-align: start;
+}
+
+.warningArea p{
+  line-height: 1.5;
 }
 
 /* 모바일 반응형 영역 */
@@ -289,12 +297,6 @@ th, td{
 
 
 
-/* 세차 상세 페이지 (workDetail) */
-
-.photoArea{
-
-}
-
 .swiper{
   width: 16rem;
   height: 9rem;
@@ -404,4 +406,20 @@ textarea{
 	position : absolute;
 	bottom: 0;
 	right: 0;
+}
+
+
+
+
+
+
+
+
+
+/* 사진 등록 페이지 */
+.beforePhoto{
+  display: flex;
+  flex: 0 0 150px;
+  align-items: center;
+  justify-content: center;
 }

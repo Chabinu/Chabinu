@@ -23,8 +23,14 @@
     <nav class="navbar">
       
       <!-- navbar 회사로고 -->
-      <div class="navbar__logo">
-        <a href="mainPage.html">CHABINU</a>
+      <div class="navbarHeader">
+        <div class="navbar__logo">
+          <a href="mainPage.html">CHABINU</a>
+        </div>
+  
+        <a href="#" class="navbar__toggleBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
+        </a>
       </div>
 
       <!-- navbar 메뉴 -->
@@ -36,44 +42,44 @@
         <li><a href="loginPage.html">로그아웃</a></li>
       </ul>
 
-      <a href="#" class="navbar__toggleBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
-      </a>
-
     </nav>
 
-    <!-- 작업 선택 박스 영역 -->
-    <div class="categoryWrapper d-flex flex-column align-items-center text-center">
+    <div class="mainContainer">
 
-      <div class="mb-4">
-
-        <h2 class="h2">
-          작업 선택
-        </h2>
-
-      </div>
+      <!-- 작업 선택 박스 영역 -->
+      <div class="categoryWrapper d-flex flex-column align-items-center text-center">
   
-      <div id="biz-menu" class="categoryMenu collapsible d-flex">
-        <span style="margin-right: 5px;">법인고객</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
-      </div>
-      <div class="biz-wrapper display-none">
-        <ul class="biz-company-list">
-          <li><a class="biz-company" href="workSetting.html">일반 법인</a></li>
-          <li><a class="biz-company" href="workSetting.html">Coupang(쿠팡)</a></li>
-          <li><a class="biz-company" href="workSetting.html">HomePlus(홈플러스)</a></li>
-          <li><a class="biz-company" href="workSetting.html">RedCap(레드캡)</a></li>
-        </ul>
+        <div class="mb-4">
+  
+          <h2 class="h2">
+            작업 선택
+          </h2>
+  
+        </div>
+    
+        <div id="biz-menu" class="categoryMenu collapsible d-flex">
+          <span style="margin-right: 5px;">법인고객</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
+        </div>
+        <div class="biz-wrapper display-none">
+          <ul class="biz-company-list">
+            <li><a class="biz-company" href="workSetting.html">일반 법인</a></li>
+            <li><a class="biz-company" href="workSetting.html">Coupang(쿠팡)</a></li>
+            <li><a class="biz-company" href="workSetting.html">HomePlus(홈플러스)</a></li>
+            <li><a class="biz-company" href="workSetting.html">RedCap(레드캡)</a></li>
+          </ul>
+        </div>
+  
+  
+        <div class="categoryMenu">
+          <a href="workSetting.html">개인고객</a>
+        </div>
+    
+        <div class="categoryMenu">
+          <a href="workSetting.html">행사</a>
+        </div>
+    
       </div>
 
-
-      <div class="categoryMenu">
-        <a href="workSetting.html">개인고객</a>
-      </div>
-  
-      <div class="categoryMenu">
-        <a href="workSetting.html">행사</a>
-      </div>
-  
     </div>
     
   </div>

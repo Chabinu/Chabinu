@@ -1,3 +1,12 @@
+/* 
+  [색 조합] - 상단바, 사이드바 순서
+  1. rgb(100,100,100) / rgb(74,74,74)
+  2. #406882 / #1A374D
+  3. #488A99 / #396E79
+  4. #398AB9 / #1C658C
+*/
+
+
 
 input{
   outline: none;
@@ -34,6 +43,7 @@ input{
   display: flex;
 
   position: fixed;
+
   z-index: 1000;
 }
 .pageBody{
@@ -48,36 +58,98 @@ input{
 
 
 .sidebarHeader{
-  min-width: 250px; max-width: 250px; width: 250px; 
+  width: 250px; 
   height: 60px; 
+  padding: 1rem;
   display: flex; align-items: center; justify-content: center;
+  
+  position: fixed;
+  z-index: 1000;
+
+  background-color: #1A374D;
+  color: #FDFDFD;
+  font-size: 2rem;
+  font-weight: 500;
+  user-select: none;
+
 }
 .sidebarBody{
-  min-width: 250px; max-width: 250px; width: 250px; 
+  width: 250px; 
   height: 100%;
   
   position: fixed;
   z-index: 1000;
   
-  background-color: gray;
+  background-color: #1A374D;
+  border-top: 1px solid #FDFDFD;
+}
+
+.adminMenuList > li{
+  /* padding: 1rem; */
+  margin: 1rem;
+}
+.adminMenuList > li > a{
+  font-size: 1.2rem;
+}
+/* 사이드 하위 메뉴  */
+.adminMenuList > li > ul > li{
+  padding: 0.5rem;
+  padding-left: 2.3rem;
+}
+
+.menuWrapper{
+  padding: 1rem;
 }
 
 
 .menuCloseBtn{
   display: none; cursor: pointer;
 }
-.menuCloseBtn:hover{
-  color: darkgray;
+.menuCloseBtn:hover > svg > path{
+  fill: rgb(200, 200, 200);
+}
+
+.adminMenuList *{
+  color: #FDFDFD;
+  user-select: none;
+}
+
+.adminMenuList > li > a:hover{
+  color: #ffca2c;
+}
+.car-item:hover{
+  color: #ffca2c;
+}
+
+.settingMenuList{
+  background-color: rgb(74, 74, 74);
+  /* background-color: #1A374D; */
+}
+.settingMenu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FDFDFD;
+  height: 2rem;
+  background-color: rgb(74, 74, 74);
+  /* background-color: #1A374D; */
+}
+.settingMenu:hover{
+  background-color: rgb(74, 74, 74);
+  /* background-color: #1A374D; */
+  color: #ffca2c;
 }
 
 
 .contentHeader{
   width: 100%; 
   height: 60px; 
-  display: flex; align-items: center; justify-content: center; 
-
-  background-color: blue; 
+  padding: 1rem;
+  display: flex; align-items: center; justify-content: flex-end; 
+  background-color: #406882; 
 }
+.menuIcon{display: none; cursor: pointer;}
+.headerLogo{display: none; user-select: none; font-size: 1.5rem; font-weight: 500;}
 .contentBody{
   width: 100%;
   padding-left: 250px;
@@ -131,45 +203,185 @@ input{
 }
 
 .resultArea{
-  min-height: 250px; 
+  min-height: 200px; 
   padding: 0.5rem;
   margin-top: 0.5rem;
   border: 1px solid lightgray;
+  border-radius: 0.5rem;
 }
+
+
+/* 본문 표 영역 */
 .resultArea table{
   table-layout: fixed;
   background-color: #FDFDFD;
 }
 .resultArea table *{
   border: 1px solid lightgray;
+  text-align: center;
   user-select: none;
 }
+.resultArea th{
+  vertical-align: middle;
+  font-weight: bold; font-size: 1.2rem; 
+  background-color: gray; color: #FDFDFD; 
+  letter-spacing: 0.25rem;
+} 
+.resultArea tr{
+  height: 50px;
+}
+.resultArea td{
+  font-size: 1.1rem;
+  vertical-align: middle;
+}
 
+/* 표 내용 너비 */
+.tableHead th:nth-child(1){
+  width: 120px;
+}
+.tableHead th:nth-child(2){
+  width: 200px;
+}
+.tableHead th:nth-child(3){
+  width: 150px;
+}
+.tableHead th:nth-child(4){
+  width: 100px;
+}
+.tableHead th:nth-child(5){
+  width: 400px;
+}
+.tableHead th:nth-child(6){
+  width: 100px;
+}
+.tableHead th:nth-child(7){
+  width: 100px;
+}
+
+
+/* 표 스크롤바 */
+.resultArea::-webkit-scrollbar{
+  height: 1.5rem;
+}
+
+.resultArea::-webkit-scrollbar-thumb {
+  background-color: #747474;
+  border-radius: 0.5rem;
+  /* box-shadow: inset 0px 0px 5px white; */
+}
+
+.resultArea::-webkit-scrollbar-track {
+  background-color: #E4E4E4;
+  border-radius: 0.5rem;
+  /* box-shadow: inset 0px 0px 5px white; */
+}
+
+.resultPlace{
+  text-align: left !important;
+}
 
 
 /* 모바일 반응형 */
 @media screen and (max-width : 992px) {
 
   .menuCloseBtn{
-    display: block;
+    display: flex;
+    align-items: center;
   }
 
   .sidebarHeader{
+    width: 0;
+    padding: 0;
+    font-size: 1.2rem;
     justify-content: space-between;
-    padding: 1rem;
-    display: none;
+    overflow-x: hidden;
   }
   .sidebarBody{
-    display: none;
+    width: 0;
+    padding: 0;
+    overflow-x: hidden;
   }
 
   .contentHeader{
-    padding: 0;
+    padding: 1.5rem;
+    justify-content: space-between;
+  }
+
+  .menuIcon, .headerLogo{
+    display: block;
   }
 
   .contentBody{
     padding-left: 0;
   }
 
+  .sideHeaderOpen{
+    width: 250px;
+    padding: 1rem;
+  }
+  .sideBodyOpen{
+    width: 250px;
+  }
 
 }
+
+@media screen and (max-width : 768px) {
+  
+  /* 본문 표 영역 */
+  .resultArea table *{
+    border: 1px solid lightgray;
+    text-align: center;
+    user-select: none;
+  }
+  .resultArea th{
+    font-size: 0.9rem;
+  } 
+  .resultArea tr{
+    height: 30px;
+  }
+  .resultArea td{
+    font-size: 0.7rem;
+    vertical-align: middle;
+  }
+
+  .tableHead th:nth-child(1){
+    width: 80px;
+  }
+  .tableHead th:nth-child(2){
+    width: 130px;
+  }
+  .tableHead th:nth-child(3){
+    width: 70px;
+  }
+  .tableHead th:nth-child(4){
+    width: 70px;
+  }
+  .tableHead th:nth-child(5){
+    width: 250px;
+  }
+  .tableHead th:nth-child(6){
+    width: 70px; 
+  }
+  .tableHead th:nth-child(7){
+    width: 70px; 
+  }
+
+}
+
+
+
+/* ------------------------------ 관리자 로그인 ------------------------------ */
+
+/* 로그인 배경 */
+.loginBackground{
+
+  background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../images/login_chabinu.jpg); 
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+#adminId, #adminPw{background-color: #EEEEEE;}
+
