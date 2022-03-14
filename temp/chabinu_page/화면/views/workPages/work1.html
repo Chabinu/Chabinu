@@ -83,14 +83,20 @@
 </head>
 <body>
 
-  <div class="container-fluid no-padding no-margin">
+  <div class="container-fluid no-padding no-margin vh-100" style="display: flex;">
 
     <!-- navbar 헤더 -->
     <nav class="navbar">
       
       <!-- navbar 회사로고 -->
-      <div class="navbar__logo">
-        <a href="mainPage.html">CHABINU</a>
+      <div class="navbarHeader">
+        <div class="navbar__logo">
+          <a href="mainPage.html">CHABINU</a>
+        </div>
+  
+        <a href="#" class="navbar__toggleBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
+        </a>
       </div>
 
       <!-- navbar 메뉴 -->
@@ -99,22 +105,49 @@
         <li><a href="">새작업</a></li>
         <li><a href="">작업중</a></li>
         <li><a href="">작업완료</a></li>
-        <li><a href="">로그아웃</a></li>
+        <li><a href="loginPage.html">로그아웃</a></li>
       </ul>
-
-      <a href="#" class="navbar__toggleBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
-      </a>
 
     </nav>
 
-
     <!-- 본문 내용 -->
+    <div class="mainContainer" style="width: 100%; height: 100%; border: 1px solid black; height: 100%;">
+
+
+      <div class="photoInputArea" style="margin: auto; display: flex; flex-wrap: wrap;">
+
+        <div class="beforePhoto">
+          <img src="https://via.placeholder.com/150" alt="샘플이미지">
+        </div>
+        <div class="beforePhoto">
+          <img src="https://via.placeholder.com/150" alt="샘플이미지">
+        </div>
+        <div class="beforePhoto">
+          <img src="https://via.placeholder.com/150" alt="샘플이미지">
+        </div>
+        <div class="beforePhoto">
+          <img src="https://via.placeholder.com/150" alt="샘플이미지">
+        </div>
+        <div class="beforePhoto">
+          <img src="https://via.placeholder.com/150" alt="샘플이미지">
+        </div>
+        <div class="beforePhoto">
+          <img src="https://via.placeholder.com/150" alt="샘플이미지">
+        </div>
+        <div class="beforePhoto">
+          <img src="https://via.placeholder.com/150" alt="샘플이미지">
+        </div>
+        
+      </div>
+
+
+    </div>
+
 
     <!-- 세차 상세 페이지 (사진 찍기) -->
 
     <!-- 사진 영역 -->
-    <div class="photoArea">
+    <div class="photoArea" style="padding-top: 60px;">
 
       <!-- 세차 전 사진 -->
       <div class="">
@@ -158,16 +191,25 @@
           <img src="../../public/images/샘플이미지1.jpg" style="max-width:100%; max-height: 100%;">
         </div>
 
-
-
       </div>
 
-    
-    
-    
+    </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
-
-
 
   <!-- BootStrap v5.1 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -283,11 +325,6 @@
       }
 
     });
-
-
-
-
-
 
   </script>
 

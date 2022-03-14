@@ -1,3 +1,12 @@
+/* 
+  [색 조합] - 상단바, 사이드바 순서
+  1. rgb(100,100,100) / rgb(74,74,74)
+  2. #406882 / #1A374D
+  3. #488A99 / #396E79
+  4. #398AB9 / #1C658C
+*/
+
+
 
 input{
   outline: none;
@@ -80,7 +89,7 @@ input{
   margin: 1rem;
 }
 .adminMenuList > li > a{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 /* 사이드 하위 메뉴  */
 .adminMenuList > li > ul > li{
@@ -89,7 +98,7 @@ input{
 }
 
 .menuWrapper{
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 
@@ -113,18 +122,21 @@ input{
 }
 
 .settingMenuList{
-  background-color: #1A374D;
+  background-color: rgb(74, 74, 74);
+  /* background-color: #1A374D; */
 }
 .settingMenu{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1A374D;
   color: #FDFDFD;
   height: 2rem;
+  background-color: rgb(74, 74, 74);
+  /* background-color: #1A374D; */
 }
 .settingMenu:hover{
-  background-color: #1A374D;
+  background-color: rgb(74, 74, 74);
+  /* background-color: #1A374D; */
   color: #ffca2c;
 }
 
@@ -191,7 +203,7 @@ input{
 }
 
 .resultArea{
-  min-height: 250px; 
+  min-height: 200px; 
   padding: 0.5rem;
   margin-top: 0.5rem;
   border: 1px solid lightgray;
@@ -207,22 +219,32 @@ input{
   text-align: center;
   user-select: none;
 }
-
+.resultArea th{vertical-align: middle; font-weight: bold; font-size: 1.3rem; background-color: gray; color: #FDFDFD; letter-spacing: 0.25rem;} 
+.resultArea tr{
+  height: 60px;
+}
+.resultArea td{
+  vertical-align: middle;
+}
 
 .resultArea::-webkit-scrollbar{
-  height: 1rem;
+  height: 1.5rem;
 }
 
 .resultArea::-webkit-scrollbar-thumb {
-  background-color: #406882;
+  background-color: #747474;
   border-radius: 0.5rem;
-  box-shadow: inset 0px 0px 5px white;
+  /* box-shadow: inset 0px 0px 5px white; */
 }
 
 .resultArea::-webkit-scrollbar-track {
-  background-color: #1A374D;
+  background-color: #E4E4E4;
   border-radius: 0.5rem;
-  box-shadow: inset 0px 0px 5px white;
+  /* box-shadow: inset 0px 0px 5px white; */
+}
+
+.resultPlace{
+  text-align: left !important;
 }
 
 
@@ -272,3 +294,27 @@ input{
 
 
 }
+
+
+
+/* ------------------------------ 관리자 로그인 ------------------------------ */
+
+/* 로그인 배경 */
+.loginBackground{
+
+  background-image:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../images/login_chabinu.jpg); 
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+#adminId, #adminPw{background-color: #EEEEEE;}
+
+
+/* 폰트 사이즈랑 표 여백에 관해 고민좀 해야할듯???? */
+tr > td{
+  font-size: 1.1rem !important;
+}
+

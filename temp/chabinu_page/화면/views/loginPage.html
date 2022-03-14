@@ -14,54 +14,58 @@
 </head>
 <body>
   
-  <div class="container-fluid loginPageContainer">
+  <div class="container-fluid loginPageContainer loginBackground">
 
-    <div class="login-box">
 
-      <div class="company-logo">
-        CHABINU
-      </div>
+    <div class="managerLoginArea">
+    
 
-      <div class="login-text">
-        로그인
+      <div class="managerLoginWrapper">
+      
+
+        <div class="company-logo">
+          <!-- 만약에 이미지 있으면 대체 -->
+          <!-- <img src="" alt=""> -->
+          <span>CHABINU</span>
+        </div>
+  
+        <div class="userArea">
+          MANAGER
+        </div>
+      
+        <!-- method, action 수정예정 -->
+        <form id="manager-login-form" action="mainPage.html" method="get">
+  
+          <div class="form-floating m-3 mx-auto">
+            <input type="text" class="form-control" name="managerId" id="managerId" placeholder="ID" autocomplete="off">
+            <label for="managerId">아이디</label>
+          </div>
+  
+          <div class="form-floating m-3 mx-auto">
+            <input type="password" class="form-control" name="managerPw" id="managerPw" placeholder="Password">
+            <label for="managerPw">비밀번호</label>
+          </div>
+  
+          <div class="m-2 form-check mx-auto save-info">
+            <input type="checkbox" class="form-check-input" id="saveIdCheck">
+            <label class="form-check-label" for="saveIdCheck">아이디 저장</label>
+          </div>
+  
+          <div class="m-2 form-check mx-auto save-info">
+            <input type="checkbox" class="form-check-input" id="autoLogin">
+            <label class="form-check-label" for="autoLogin">자동 로그인</label>
+          </div>
+  
+          <button type="submit" class="btn btn-lg btn-primary mt-2 mx-auto w-100">로그인</button>
+  
+        </form>
+
+
       </div>
     
-      <!-- method, action 수정예정 -->
-      <form id="manager-login-form" action="mainPage.html" method="get">
-
-        <div class="form-floating m-3 mx-auto">
-
-          <input type="text" class="form-control" name="managerId" id="managerId" placeholder="ID" autocomplete="off">
-          <label for="managerId">아이디</label>
-
-        </div>
-
-        <div class="form-floating m-3 mx-auto">
-
-          <input type="password" class="form-control" name="managerPw" id="managerPw" placeholder="Password">
-          <label for="managerPw">비밀번호</label>
-
-        </div>
-
-        <div class="m-2 form-check mx-auto">
-
-          <input type="checkbox" class="form-check-input" id="saveIdCheck">
-          <label class="form-check-label" for="saveIdCheck">아이디 저장</label>
-
-        </div>
-
-        <div class="m-2 form-check mx-auto">
-
-          <input type="checkbox" class="form-check-input" id="autoLogin">
-          <label class="form-check-label" for="autoLogin">자동 로그인</label>
-
-        </div>
-
-        <button type="submit" class="btn btn-lg btn-primary mt-2 mx-auto w-100">로그인</button>
-
-      </form>
 
     </div>
+
     
   </div>
 

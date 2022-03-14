@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차비누 관리자</title>
+
+  <!-- BootStrap v5.1 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <style>
+
+    /* css초기화 */
+ /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	box-sizing: border-box;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* --------------------------------------------------------------------------------- */
+
+/* header에 가린 내용 보이기 */
+body{
+	background-color: rgba(211, 211, 211, 0.4);
+}
+
+a{
+	text-decoration: none;
+	cursor: pointer;
+	color: #323232;
+}
+
+/* 패딩 제거 */
+.no-padding {
+  padding: 0 !important;
+}
+.no-top-padding {
+  padding-top: 0 !important;
+}
+.no-bottom-padding {
+  padding-bottom: 0 !important;
+}
+.no-left-padding {
+  padding-left: 0 !important;
+}
+.no-right-padding {
+  padding-right: 0 !important;
+}
+
+/* 마진 제거 */
+.no-margin {
+  margin: 0 !important;
+}
+.no-top-margin {
+  margin-top: 0 !important;
+}
+.no-bottom-margin {
+  margin-bottom: 0 !important;
+}
+.no-left-margin {
+  margin-left: 0 !important;
+}
+.no-right-margin {
+  margin-right: 0 !important;
+}
+
+/* 폰트 */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+body, table, th, td, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+	pre, form, fieldset, textarea, blockquote, span, * {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+/* 헤더 스타일 */
+.navbar{
+	width: 100%;
+	min-height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1.5rem;
+	background-color: #1A374D;
+
+	position: fixed;
+	z-index: 1000;
+
+}
+
+.navbarHeader{height: 60px; display: flex; justify-content: space-between; align-items: center;}
+
+.navbar__logo{font-size: 1.5rem;}
+.navbar__logo > a{color : #FDFDFD}
+.navbar__menu{ display: flex; list-style: none; padding-left: 0; min-height: 60px; align-items: center;}
+
+.navbar__menu li{display: flex; align-items: center; padding: 0 10px; height: 100%; font-weight: 500; font-size: 20px;}
+.navbar__menu li > a{ color: #FDFDFD; height: 100%; padding: 0 0.25rem; display: flex; align-items: center;}
+.navbar__menu li :hover {background-color: #406882; border-radius: 4px; color: #FDFDFD;}
+
+.navbar__toggleBtn{
+	display: none;
+}
+
+/* 모바일 헤더 */
+@media screen and (max-width : 768px) {
+
+	.navbar{
+		padding: 0 1.5rem;
+	}
+
+	.navbarHeader{padding: 1rem; width: 100%; display: flex; justify-content: space-between;}
+
+	.navbar__menu{
+		display: none;
+		margin-top: 0.75rem;
+		padding-bottom: 0.5rem;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+
+	.navbar__menu li{
+		height: 40px;
+		padding: 0;
+		font-size: 18px;
+		width: 100%;
+		text-align: center;
+	}
+	.navbar__menu li > a{
+		display: block;
+		line-height: 38px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.navbar__toggleBtn{
+		display: block;
+	}
+
+	.navbar__menu.active{
+		display: flex;
+	}
+
+}
+
+
+/* 테이블 관련 */
+td{ 
+	overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+    /* 
+    [색 조합] - 상단바, 사이드바 순서
+    1. rgb(100,100,100) / rgb(74,74,74)
+    2. #406882 / #1A374D
+    3. #488A99 / #396E79
+    4. #398AB9 / #1C658C
+    */
+
+
+
+    input{
+    outline: none;
+    }
+
+    .a-btn{
+    width: 7rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin: 0.25rem;
+    user-select: none;
+    }
+
+
+
+    /* --------------------------------------------------------------------------- */
+
+    .mainContainer{
+
+    width: 100vw; 
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    }
+
+
+    .pageHeader{
+    min-height: 60px; max-height: 60px; height: 60px; 
+    width: 100%;
+    display: flex;
+
+    position: fixed;
+
+    z-index: 1000;
+    }
+    .pageBody{
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    padding-top: 60px;
+
+    display: flex;
+    }
+
+
+    .sidebarHeader{
+    width: 250px; 
+    height: 60px; 
+    padding: 1rem;
+    display: flex; align-items: center; justify-content: center;
+
+    position: fixed;
+    z-index: 1000;
+
+    background-color: #1A374D;
+    color: #FDFDFD;
+    font-size: 2rem;
+    font-weight: 500;
+    user-select: none;
+
+    }
+    .sidebarBody{
+    width: 250px; 
+    height: 100%;
+
+    position: fixed;
+    z-index: 1000;
+
+    background-color: #1A374D;
+    border-top: 1px solid #FDFDFD;
+    }
+
+    .adminMenuList > li{
+    /* padding: 1rem; */
+    margin: 1rem;
+    }
+    .adminMenuList > li > a{
+    font-size: 1.3rem;
+    }
+    /* 사이드 하위 메뉴  */
+    .adminMenuList > li > ul > li{
+    padding: 0.5rem;
+    padding-left: 2.3rem;
+    }
+
+    .menuWrapper{
+    padding: 1.5rem;
+    }
+
+
+    .menuCloseBtn{
+    display: none; cursor: pointer;
+    }
+    .menuCloseBtn:hover > svg > path{
+    fill: rgb(200, 200, 200);
+    }
+
+    .adminMenuList *{
+    color: #FDFDFD;
+    user-select: none;
+    }
+
+    .adminMenuList > li > a:hover{
+    color: #ffca2c;
+    }
+    .car-item:hover{
+    color: #ffca2c;
+    }
+
+    .settingMenuList{
+    background-color: rgb(74, 74, 74);
+    /* background-color: #1A374D; */
+    }
+    .settingMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FDFDFD;
+    height: 2rem;
+    background-color: rgb(74, 74, 74);
+    /* background-color: #1A374D; */
+    }
+    .settingMenu:hover{
+    background-color: rgb(74, 74, 74);
+    /* background-color: #1A374D; */
+    color: #ffca2c;
+    }
+
+
+    .contentHeader{
+    width: 100%; 
+    height: 60px; 
+    padding: 1rem;
+    display: flex; align-items: center; justify-content: flex-end; 
+    background-color: #406882; 
+    }
+    .menuIcon{display: none; cursor: pointer;}
+    .headerLogo{display: none; user-select: none; font-size: 1.5rem; font-weight: 500;}
+    .contentBody{
+    width: 100%;
+    padding-left: 250px;
+    }
+    .contentWrapper{
+    width: 100%; height: 100%; padding: 2rem;
+    }
+
+    .searchArea{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.25rem;
+    }
+    .searchInputArea{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 260px;
+    }
+    .searchArea input[type='text']{
+    width: 120px;
+    height: 2rem;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    }
+    .searchArea input[type='date']{
+    height: 2rem;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    }
+
+    .searchBtn{
+    background-color: #198754;
+    color: white;
+    font-weight: 500;
+    }
+    .searchBtn:hover{
+    background-color: #198754bb;
+    }
+    .excelBtn{
+    background-color: #ffca2c;
+    color: white;
+    font-weight: 500;
+    }
+    .excelBtn:hover{
+    background-color: #f0ba19;
+    }
+
+    .resultArea{
+    min-height: 200px; 
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    }
+    .resultArea table{
+    table-layout: fixed;
+    background-color: #FDFDFD;
+    }
+    .resultArea table *{
+    font-size: 0.9rem;
+    border: 1px solid lightgray;
+    text-align: center;
+    user-select: none;
+    }
+    .resultArea th{vertical-align: middle; font-weight: bold; font-size: 1.3rem; background-color: gray; color: #FDFDFD; letter-spacing: 0.25rem;} 
+    .resultArea tr{
+    height: 60px;
+    }
+    .resultArea td{
+    vertical-align: middle;
+    }
+
+    .resultArea::-webkit-scrollbar{
+    height: 1.5rem;
+    }
+
+    .resultArea::-webkit-scrollbar-thumb {
+    background-color: #747474;
+    border-radius: 0.5rem;
+    /* box-shadow: inset 0px 0px 5px white; */
+    }
+
+    .resultArea::-webkit-scrollbar-track {
+    background-color: #E4E4E4;
+    border-radius: 0.5rem;
+    /* box-shadow: inset 0px 0px 5px white; */
+    }
+
+    .resultPlace{
+    text-align: left !important;
+    }
+
+
+
+
+    /* 모바일 반응형 */
+    @media screen and (max-width : 992px) {
+
+    .menuCloseBtn{
+    display: flex;
+    align-items: center;
+    }
+
+    .sidebarHeader{
+    width: 0;
+    padding: 0;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    overflow-x: hidden;
+    }
+    .sidebarBody{
+    width: 0;
+    padding: 0;
+    overflow-x: hidden;
+    }
+
+    .contentHeader{
+    padding: 1.5rem;
+    justify-content: space-between;
+    }
+
+    .menuIcon, .headerLogo{
+    display: block;
+    }
+
+    .contentBody{
+    padding-left: 0;
+    }
+
+    .sideHeaderOpen{
+    width: 250px;
+    padding: 1rem;
+    }
+    .sideBodyOpen{
+    width: 250px;
+    }
+
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- 메인 컨테이너 -->
+  <div style="overflow-x: hidden;">
+    <div class="mainContainer">
+
+
+      <!-- 상단 navbar -->
+      <nav class="pageHeader">
+  
+        <!-- 사이드 헤더 -->
+        <!-- ************************************************ -->
+        <div class="sidebarHeader" style="background-color: rgb(74, 74, 74);">
+          <!-- ************************************************ -->
+          
+          <div>
+            CHABINU
+          </div>
+          <div class="menuCloseBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z" fill="#FDFDFD"/></svg>
+          </div>
+  
+        </div>
+  
+        <!-- 본문 헤더 -->
+        <!-- ************************************************ -->
+        <div class="contentHeader" style="background-color: rgb(100, 100, 100);">
+        <!-- ************************************************ -->
+        
+        <!-- <span style="color: white;">Header</span> -->
+        
+          <!-- 메뉴 아이콘 -->
+          <div class="menuIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
+          </div>
+
+          <div class="headerLogo" style="color: white;">CHABINU</div>
+
+          <!-- 로그아웃 아이콘 -->
+          <div class="settingIcon dropdown">
+            <button class="btn" type="button" id="settingBtn" data-bs-toggle="dropdown" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 13.616v-3.232c-1.651-.587-2.694-.752-3.219-2.019v-.001c-.527-1.271.1-2.134.847-3.707l-2.285-2.285c-1.561.742-2.433 1.375-3.707.847h-.001c-1.269-.526-1.435-1.576-2.019-3.219h-3.232c-.582 1.635-.749 2.692-2.019 3.219h-.001c-1.271.528-2.132-.098-3.707-.847l-2.285 2.285c.745 1.568 1.375 2.434.847 3.707-.527 1.271-1.584 1.438-3.219 2.02v3.232c1.632.58 2.692.749 3.219 2.019.53 1.282-.114 2.166-.847 3.707l2.285 2.286c1.562-.743 2.434-1.375 3.707-.847h.001c1.27.526 1.436 1.579 2.019 3.219h3.232c.582-1.636.75-2.69 2.027-3.222h.001c1.262-.524 2.12.101 3.698.851l2.285-2.286c-.744-1.563-1.375-2.433-.848-3.706.527-1.271 1.588-1.44 3.221-2.021zm-12 2.384c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4z" fill="#FDFDFD"/></svg>
+            </button>
+
+            <ul class="dropdown-menu settingMenuList" aria-labelledby="settingBtn">
+              <li>
+                <a class="dropdown-item no-padding settingMenu" href="#">로그아웃 (Logout)</a>
+              </li>
+            </ul>
+
+          </div>
+          
+        </div>
+        
+      </nav>
+      
+  
+      <div class="pageBody">
+        
+        <!-- 사이드 메뉴 -->
+        <!-- ************************************************ -->
+        <div class="sidebarBody" style="background-color: rgb(74, 74, 74);">
+        <!-- ************************************************ -->
+          
+          <div class="menuWrapper">
+
+            <ul class="adminMenuList">
+    
+              <li>
+    
+                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#car-menu" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" fill="#FDFDFD"/></svg>
+                  &nbsp;
+                  세차 관리
+                </a>
+    
+                <ul class="collapse" id="car-menu">
+                  <li><a class="car-item fs-6" href="">세차 내역 조회</a></li>
+                </ul>
+    
+              </li>
+    
+              <li>
+    
+                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#client-menu" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" fill="#FDFDFD"/></svg>
+                  &nbsp;
+                  고객 관리
+                </a>
+    
+                <ul class="collapse" id="client-menu">
+                  <li><a class="car-item fs-6" href="">고객 정보 조회</a></li>
+                  <li><a class="car-item fs-6" href="">고객 정보 추가</a></li>
+                </ul>
+    
+              </li>
+    
+              <li>
+    
+                <a class="collapsed" data-bs-toggle="collapse" data-bs-target="#manager-menu" aria-expanded="false">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" fill="#FDFDFD"/></svg>
+                  &nbsp;
+                  매니저 관리
+                </a>
+    
+                <ul class="collapse" id="manager-menu">
+                  <li><a class="car-item fs-6" href="">매니저 정보 조회</a></li>
+                  <li><a class="car-item fs-6" href="">매니저 정보 추가</a></li>
+                </ul>
+    
+              </li>
+    
+            </ul>
+
+          </div>
+  
+        </div>
+  
+        <!-- 본문 내용 -->
+        <div class="contentBody">
+  
+          <!-- 본문 Wrapper -->
+          <div class="contentWrapper">
+            
+            <!-- 검색 폼 -->
+            <form action="" method="get">
+
+              <div class="searchArea">
+                
+                <div class="searchInputArea">
+                  <div>
+                    <span>FROM</span>
+                    <input type="date" name="workDateFrom">
+                  </div>
+                  <div>
+                    <span>TO</span>
+                    <input type="date" name="workDateTO">
+                  </div>
+                </div>
+  
+                <div class="searchInputArea">
+                  <input type="text" name="workName" placeholder="작업이름">
+                  <input type="text" name="workCategory" placeholder="작업종류">
+                </div>
+  
+                <div class="searchInputArea">
+                  <input type="text" name="workPlace" placeholder="작업장소">
+                  <input type="text" name="workManager" placeholder="작업자">
+                </div>
+
+                <div class="searchInputArea">
+                  <button class="a-btn searchBtn">검색</button>
+                  <button class="a-btn excelBtn" type="button">엑셀(Excel)</button>
+                </div>
+  
+              </div>
+
+            </form>
+
+
+            <div class="table-responsive resultArea">
+
+              <table class="table table-hover">
+
+                <thead>
+                    <th style="width: 100px;">날짜</th>
+                    <th style="width: 200px;">생성일</th>
+                    <th style="width: 150px;">이름</th>
+                    <th style="width: 100px;">종류</th>
+                    <th style="width: 400px;">장소</th>
+                    <th style="width: 100px;">작업자</th>
+                    <th style="width: 100px;">서명</th>
+                </thead>
+
+                <tbody>
+
+                  <tr>
+                    <td>2022-03-10</td>
+                    <td>2022-03-10 15:22:14</td>
+                    <td>홈플러스</td>
+                    <td>Standard</td>
+                    <td class="resultPlace">영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소 영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소</td>
+                    <td>김연준</td>
+                    <td>서명완료</td>
+                  </tr>
+  
+                  <tr>
+                    <td>2022-03-10</td>
+                    <td>2022-03-10 15:22:14</td>
+                    <td>홈플러스</td>
+                    <td>Standard</td>
+                    <td class="resultPlace">영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소</td>
+                    <td>김연준</td>
+                    <td>서명완료</td>
+                  </tr>
+  
+                  <tr>
+                    <td>2022-03-10</td>
+                    <td>2022-03-10 15:22:14</td>
+                    <td>홈플러스</td>
+                    <td>Standard</td>
+                    <td class="resultPlace">영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소 / 영등포 경찰서 영등포역 파출소</td>
+                    <td>김연준</td>
+                    <td>서명완료</td>
+                  </tr>
+
+                </tbody>
+
+              </table>
+
+
+            </div>
+  
+          </div>
+  
+        </div>
+  
+  
+  
+      </div>
+  
+    </div>
+
+  </div>
+  
+
+
+  <!-- BootStrap v5.1 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script>
+    // 메뉴 버튼 눌렀을 경우 사이드 메뉴 출력
+    document.querySelector('.menuIcon').addEventListener("click",function(){
+
+    const sideHeader = document.querySelector('.sidebarHeader');
+    const sideBody = document.querySelector('.sidebarBody');
+
+    sideHeader.classList.add('sideHeaderOpen');
+    sideBody.classList.add('sideBodyOpen');
+
+    });
+
+
+    // 닫기 버튼 클릭 시 사이드 메뉴 제거
+    document.querySelector('.menuCloseBtn').addEventListener("click",function(){
+
+    const sideHeader = document.querySelector('.sidebarHeader');
+    const sideBody = document.querySelector('.sidebarBody');
+
+    sideHeader.classList.remove('sideHeaderOpen');
+    sideBody.classList.remove('sideBodyOpen');
+
+});
+
+  </script>
+
+</body>
+</html>

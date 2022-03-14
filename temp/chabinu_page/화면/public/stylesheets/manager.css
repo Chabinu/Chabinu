@@ -93,6 +93,10 @@ th, td{
   text-align: start;
 }
 
+.warningArea p{
+  line-height: 1.5;
+}
+
 /* 모바일 반응형 영역 */
 @media screen and (max-width : 499px) {
 
@@ -293,12 +297,6 @@ th, td{
 
 
 
-/* 세차 상세 페이지 (workDetail) */
-
-.photoArea{
-
-}
-
 .swiper{
   width: 16rem;
   height: 9rem;
@@ -408,4 +406,20 @@ textarea{
 	position : absolute;
 	bottom: 0;
 	right: 0;
+}
+
+
+
+
+
+
+
+
+
+/* 사진 등록 페이지 */
+.beforePhoto{
+  display: flex;
+  flex: 0 0 150px;
+  align-items: center;
+  justify-content: center;
 }
