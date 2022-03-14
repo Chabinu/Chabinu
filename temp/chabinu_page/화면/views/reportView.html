@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차비누 매니저</title>
+
+  <!-- BootStrap v5.1 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+  
+  <!-- <link rel="stylesheet" href="/stylesheets/commonStyle.css"> -->
+  <!-- <link rel="stylesheet" href="../../public/stylesheets/style.css"> -->
+
+  <link rel="stylesheet" href="../public/stylesheets/commonStyle.css">
+  <link rel="stylesheet" href="../public/stylesheets/manager.css">
+
+</head>
+<body>
+
+  <div class="container-fluid no-padding no-margin">
+
+    <!-- navbar 헤더 -->
+    <nav class="navbar">
+      
+      <!-- navbar 회사로고 -->
+      <div class="navbar__logo">
+        <a href="mainPage.html">CHABINU</a>
+      </div>
+
+      <!-- navbar 메뉴 -->
+      <ul class="navbar__menu">
+        <li><a href="">홈으로</a></li>
+        <li><a href="">새작업</a></li>
+        <li><a href="">작업중</a></li>
+        <li><a href="">작업완료</a></li>
+        <li><a href="">로그아웃</a></li>
+      </ul>
+
+      <a href="#" class="navbar__toggleBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>
+      </a>
+
+    </nav>
+
+
+    <!-- 본문 내용 -->
+
+    <!-- 리포트 상세 페이지 -->
+    <div class="container-sm p-3">
+      
+      <div>
+
+      </div>
+
+      <table class="table">
+        
+        <!-- 차량번호 -->
+        <tr>
+          <th>차량 번호</th>
+          <td>123가1234</th>
+        </tr>
+
+        <!-- 차종 -->
+        <tr>
+          <th>차종</th>
+          <td>쏘렌토</th>
+        </tr>
+  
+        <!-- 고객명 -->
+        <tr>
+          <th>고객명</th>
+          <td>쿠팡 남양주</th>
+        </tr>
+  
+        <!-- 세차 구분 -->
+        <tr>
+          <th>세차 구분</th>
+          <td>실내/실외</th>
+        </tr>
+        
+        <!-- 담당자 -->
+        <tr>
+          <th>담당 매니저</th>
+          <td>차비누</th>
+        </tr>
+
+        <!-- 특이사항 -->
+        <tr>
+
+          <tr>
+            <th colspan="2" class="text-center">특이사항</td>
+          </tr>
+
+          <tr>
+            <td colspan="2" class="text-center">
+              <textarea name="" id="" cols="30" rows="10" readonly></textarea>
+            </td>
+          </tr>
+
+        </tr>
+
+        <!-- 작업 전 사진 -->
+        <tr>
+
+          <tr>
+            <th colspan="2" class="text-center">작업 전 사진</th>
+          </tr>
+
+          <!-- 이미지 영역 -->
+          <tr>
+            <td colspan="2" class="text-center">
+              <!-- Slider main container -->
+              <div class="swiper swiper1">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample2.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+              </div>
+            </th>
+          </tr>
+
+        </tr>
+
+        <!-- 작업 후 사진 -->
+        <tr>
+
+          <tr>
+            <th colspan="2" class="text-center">작업 후 사진</th>
+          </tr>
+
+          <!-- 이미지 영역 -->
+          <tr>
+            <td colspan="2" class="text-center">
+              <!-- Slider main container -->
+              <div class="swiper swiper2">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                  <!-- Slides -->
+                  <div class="swiper-slide"><img src="../public/images/car-sample2.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                  <div class="swiper-slide"><img src="../public/images/car-sample.jpg" alt=""></div>
+                </div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+              </div>
+            </th>
+          </tr>
+
+        </tr>
+  
+  
+      </table>
+
+    </div>
+    
+    
+    
+  </div>
+
+
+
+  <!-- BootStrap v5.1 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- User Script -->
+  <script src="../public/js/main.js"></script>
+
+</body>
+</html>

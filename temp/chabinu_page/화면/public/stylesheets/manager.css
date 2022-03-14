@@ -23,15 +23,45 @@
   color: #FFFFFF;
 }
 
+th, td{
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
 
 
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 768px) {
 
+
+}
 
 
 
 /* ------------------- 매니저 메인페이지 (mainPage) ------------------- */
 
 /* 공지사항 + 작업시작 버튼 영역 */
+.startBtn{
+  min-width: 150px;
+  max-width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+
+  margin: 20px;
+  margin-bottom: 0;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+
+  background-color: #ff6c6c;
+}
+.startBtn:hover{
+  background-color: #F05454;
+}
+
+.noticeTitle{ color: #F05454; margin: 20px 0;}
+
 .noticeWrapper{
   display: flex;
   flex-direction: column;
@@ -43,6 +73,37 @@
 .noticeWrapper p{
   padding: 10px;
 }
+
+.noticeArea{padding: 10px; margin: auto; text-align: center;}
+.noticeTable{
+  max-width: 800px;
+  margin: auto;
+  table-layout: fixed;
+  padding: 1.5rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.boardTitle{
+  text-align: start;
+}
+
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 499px) {
+
+  .noticeTable{
+    font-size: 0.8rem;
+  }
+
+  .workCategory{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+
 
 
 /* 매니저 작업 목록 영역 */
@@ -115,8 +176,8 @@
 .display-none{display: none;}
 
 
-
 /* ------------------- 작업 세팅 페이지(workSetting) ------------------- */
+
 
 .workInfo{
   width: 80%;
@@ -240,6 +301,17 @@
   border: 1px solid black;
 }
 
+.swiper-slide > img{
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
 
 /* workDetail Responsive CSS */
 @media screen and (max-width : 768px) {
@@ -265,5 +337,71 @@
 
 /* 사진 예시 미리보기 */
 
+textarea{
+  outline: none;
+}
 
 
+
+
+/* work1.html */
+
+.deleteImg {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: rgba(50, 50, 50, 0.2);
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.deleteImg:hover {
+	background-color: rgba(50, 50, 50, 0.3);
+}
+
+.boardImg {
+	cursor: pointer;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ced4da;
+	position: relative;
+}
+
+.thubnail {
+	width: 300px;
+	height: 300px;
+}
+
+.boardImg>img {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.insert-label {
+	display: inline-block;
+	width: 80px;
+	line-height: 40px
+}
+
+#fileArea {
+	display: none;
+}
+
+.boardImg a{
+	position : absolute;
+	bottom: 0;
+	right: 0;
+}
