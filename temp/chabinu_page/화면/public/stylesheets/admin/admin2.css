@@ -209,24 +209,57 @@ input{
   border: 1px solid lightgray;
   border-radius: 0.5rem;
 }
+
+
+/* 본문 표 영역 */
 .resultArea table{
   table-layout: fixed;
   background-color: #FDFDFD;
 }
 .resultArea table *{
-  font-size: 0.9rem;
   border: 1px solid lightgray;
   text-align: center;
   user-select: none;
 }
-.resultArea th{vertical-align: middle; font-weight: bold; font-size: 1.3rem; background-color: gray; color: #FDFDFD; letter-spacing: 0.25rem;} 
+.resultArea th{
+  vertical-align: middle;
+  font-weight: bold; font-size: 1.2rem; 
+  background-color: gray; color: #FDFDFD; 
+  letter-spacing: 0.25rem;
+} 
 .resultArea tr{
-  height: 60px;
+  height: 50px;
 }
 .resultArea td{
+  font-size: 1.1rem;
   vertical-align: middle;
 }
 
+/* 표 내용 너비 */
+.tableHead th:nth-child(1){
+  width: 120px;
+}
+.tableHead th:nth-child(2){
+  width: 200px;
+}
+.tableHead th:nth-child(3){
+  width: 150px;
+}
+.tableHead th:nth-child(4){
+  width: 100px;
+}
+.tableHead th:nth-child(5){
+  width: 400px;
+}
+.tableHead th:nth-child(6){
+  width: 100px;
+}
+.tableHead th:nth-child(7){
+  width: 100px;
+}
+
+
+/* 표 스크롤바 */
 .resultArea::-webkit-scrollbar{
   height: 1.5rem;
 }
@@ -246,8 +279,6 @@ input{
 .resultPlace{
   text-align: left !important;
 }
-
-
 
 
 /* 모바일 반응형 */
@@ -292,6 +323,48 @@ input{
     width: 250px;
   }
 
+}
+
+@media screen and (max-width : 768px) {
+  
+  /* 본문 표 영역 */
+  .resultArea table *{
+    border: 1px solid lightgray;
+    text-align: center;
+    user-select: none;
+  }
+  .resultArea th{
+    font-size: 0.9rem;
+  } 
+  .resultArea tr{
+    height: 30px;
+  }
+  .resultArea td{
+    font-size: 0.7rem;
+    vertical-align: middle;
+  }
+
+  .tableHead th:nth-child(1){
+    width: 80px;
+  }
+  .tableHead th:nth-child(2){
+    width: 130px;
+  }
+  .tableHead th:nth-child(3){
+    width: 70px;
+  }
+  .tableHead th:nth-child(4){
+    width: 70px;
+  }
+  .tableHead th:nth-child(5){
+    width: 250px;
+  }
+  .tableHead th:nth-child(6){
+    width: 70px; 
+  }
+  .tableHead th:nth-child(7){
+    width: 70px; 
+  }
 
 }
 
@@ -311,10 +384,4 @@ input{
 }
 
 #adminId, #adminPw{background-color: #EEEEEE;}
-
-
-/* 폰트 사이즈랑 표 여백에 관해 고민좀 해야할듯???? */
-tr > td{
-  font-size: 1.1rem !important;
-}
 
