@@ -112,7 +112,9 @@ th, td{
 }
 
 
+/* ------------------- 작업 목록페이지(workList) ------------------- */
 
+/* 테이블의 행 전체에 링크 걸기 (1. td마다 a링크 걸기) */
 
 /* 매니저 작업 목록 영역 */
 .myWorkList{
@@ -123,8 +125,27 @@ th, td{
 
 }
 
+/* 작업중 */
+.workStatus{
+  background-color: #ffca2c !important;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.workStatus2{
+  background-color:  #198754!important;
+  color: #FDFDFD !important;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.workListTable thead th{
+  user-select: none;
+}
+
 
 /* ------------------- 작업 메인페이지(workMain) ------------------- */
+
 
 /* 작업 카테고리 */
 .categoryMenu{
@@ -198,6 +219,8 @@ th, td{
 /* 차량 등록 메뉴 */
 .cleaningMenu{
   margin: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .cleaningMenu td{
@@ -216,10 +239,13 @@ th, td{
   margin-top: 10px;
 }
 
+#add-car-button{
+  width: 50%; max-width: 300px; min-width: 100px;
+}
 
 
 
-/* ------------------- 작업 수행 페이지(workListPage) ------------------- */
+/* ------------------- 작업 수행 페이지(carListPage) ------------------- */
 
 /* 추가해 놓은 차량 정보를 기반으로 리스트 페이지 로드  */
 /* 해당 박스를 클릭하면 사진 업로드가 가능한 세차 상세 페이지로 이동 */

@@ -32,10 +32,10 @@
 
       <!-- navbar 메뉴 -->
       <ul class="navbar__menu">
-        <li><a href="">홈으로</a></li>
-        <li><a href="">새작업</a></li>
-        <li><a href="">작업중</a></li>
-        <li><a href="">작업완료</a></li>
+        <li><a href="mainPage.html">홈으로</a></li>
+        <li><a href="workMain.html">새작업</a></li>
+        <li><a href="workList.html">작업중</a></li>
+        <li><a href="workFinishList.html">작업완료</a></li>
         <li><a href="loginPage.html">로그아웃</a></li>
       </ul>
 
@@ -47,22 +47,32 @@
     <!-- 상단 전달사항 + 작업 시작 버튼 -->
     <div class="noticeWrapper container">
 
-      <div style="min-width: 300px; max-width: 800px; margin: auto; text-align: left;">
-        <p> <h2 class="h2 no-margin" style="text-align: center">세차 주의사항</h1></p>
+      <div class="warningArea" style="min-width: 300px; max-width: 800px; margin: auto; text-align: center;">
+        <h2 class="h2 noticeTitle">세차 주의사항</h2>
         <p>
           1. 차량번호와 사진이 일치하지 않으면 정산에 반영되지 않습니다.
         </p>
 
         <p>
           2. 사진이 없으면 정산에 누락됩니다.
+        </p>
+
         <p>
           3. 신차일 경우 오염도 확인 후 세차를 진행해주세요.<br><br>
           &nbsp;&nbsp;&nbsp;- 비닐 미제거 상태일 경우 정산되지 않습니다.
         </p>
+
+        <p>
+          4. 가이드라인을 준수하여 사진 촬영을 해주세요. 
+        </p>
+
+        <p>
+          5. 세차 후 사진을 촬영하면 최종 제출 버튼을 꼭 눌러주세요. 
+        </p>
         
       </div>
       
-      <button class="startBtn" type="button" onclick="location.href='workMain.html'">
+      <button class="startBtn" type="button" onclick="location.href='workList.html'">
         시작하기
       </button>
 
@@ -83,7 +93,6 @@
           </tr>
         </thead>
 
-
         <tbody>
 
           <!-- 공지 글 1개 -->
@@ -99,7 +108,6 @@
           </tr>
 
 
-
           <!-- 샘플 -->
           <tr>
             <!-- 제목 -->
@@ -144,122 +152,12 @@
               2022-03-06
             </td>
           </tr>
-=======
-      <!-- 상단 전달사항 + 작업 시작 버튼 -->
-      <div class="noticeWrapper container">
-  
-        <div class="warningArea" style="min-width: 300px; max-width: 800px; margin: auto; text-align: center;">
-          <h2 class="h2 noticeTitle">매니저 주의사항</h2>
-          <p>
-            1. '시작하기' 버튼을 클릭하면 작업 선택 메뉴로 이동합니다. 
-          </p>
-  
-          <p>
-            2. 사진 제출 전에 프로그램을 종료하면 사진파일이 사라집니다. <br>
-            세차 전 촬영 후 꼭 제출해주세요!
-          </p>
-  
-          <p>
-            3. 가이드라인을 준수하여 사진 촬영을 해주세요. 
-          </p>
-  
-          <p>
-            4. 세차 후 사진을 촬영하면 최종 제출 버튼을 꼭 눌러주세요. 
-          </p>
->>>>>>> 9ac550445bb50131621f8d82db07d75236e7e63b
-          
-        </div>
-        
-        <button class="startBtn" type="button" onclick="location.href='workMain.html'">
-          시작하기
-        </button>
-  
-      </div>
-  
-      <hr class="no-margin">
-  
-      <!-- 공지사항 -->
-      <div class="noticeArea">
-  
-        <h2 class="h2 noticeTitle">공지사항</h2>
-  
-        <table class="table noticeTable">
-          <thead>
-            <tr>
-              <th colspan="9">공지제목</th>
-              <th colspan="3">작성일</th>
-            </tr>
-          </thead>
   
   
-          <tbody>
+        </tbody>
   
-            <!-- 공지 글 1개 -->
-            <tr>
-              <!-- 제목 -->
-              <td colspan="9" class="boardTitle">
-                <a href="">작업 별 필요한 최소 사진 수</a>
-              </td>
-              <!-- 작성일 -->
-              <td colspan="3">
-                2022-03-06
-              </td>
-            </tr>
+      </table>
   
-  
-  
-            <!-- 샘플 -->
-            <tr>
-              <!-- 제목 -->
-              <td colspan="9" class="boardTitle">
-                <a href="">공지사항 샘플입니다</a>
-              </td>
-              <!-- 작성일 -->
-              <td colspan="3">
-                2022-03-06
-              </td>
-            </tr>
-            <!-- 샘플 -->
-            <tr>
-              <!-- 제목 -->
-              <td colspan="9" class="boardTitle">
-                <a href="">공지사항 샘플입니다</a>
-              </td>
-              <!-- 작성일 -->
-              <td colspan="3">
-                2022-03-06
-              </td>
-            </tr>
-            <!-- 샘플 -->
-            <tr>
-              <!-- 제목 -->
-              <td colspan="9" class="boardTitle">
-                <a href="">공지사항 샘플입니다</a>
-              </td>
-              <!-- 작성일 -->
-              <td colspan="3">
-                2022-03-06
-              </td>
-            </tr>
-            <!-- 샘플 -->
-            <tr>
-              <!-- 제목 -->
-              <td colspan="9" class="boardTitle">
-                <a href="">공지사항 샘플입니다</a>
-              </td>
-              <!-- 작성일 -->
-              <td colspan="3">
-                2022-03-06
-              </td>
-            </tr>
-  
-          </tbody>
-  
-  
-        </table>
-  
-      </div>
-
     </div>
 
   </div>

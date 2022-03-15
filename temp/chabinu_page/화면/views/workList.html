@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>차비누 매니저</title>
+  <title>차비누</title>
 
   <!-- BootStrap v5.1 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -21,13 +21,13 @@
 
     <!-- navbar 헤더 -->
     <nav class="navbar">
-      
+          
       <!-- navbar 회사로고 -->
       <div class="navbarHeader">
         <div class="navbar__logo">
           <a href="mainPage.html">CHABINU</a>
         </div>
-  
+
         <a href="#" class="navbar__toggleBtn">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
         </a>
@@ -35,10 +35,10 @@
 
       <!-- navbar 메뉴 -->
       <ul class="navbar__menu">
-        <li><a href="">홈으로</a></li>
-        <li><a href="">새작업</a></li>
-        <li><a href="">작업중</a></li>
-        <li><a href="">작업완료</a></li>
+        <li><a href="mainPage.html">홈으로</a></li>
+        <li><a href="workMain.html">새작업</a></li>
+        <li><a href="workList.html">작업중</a></li>
+        <li><a href="workFinishList.html">작업완료</a></li>
         <li><a href="loginPage.html">로그아웃</a></li>
       </ul>
 
@@ -46,119 +46,54 @@
 
     <div class="mainContainer">
 
-      <!-- 작업 페이지 전체 -->
-      <div class="workListArea pb-5">
-  
-        <!-- 작업 대분류 (법인, 개인, 행사) -->
-        <div class="workCategory">
-          <h2 class="h2 no-margin no-padding">
-            법인 [일반]
-          </h2>
-        </div>
-  
-        <!-- 작업 리스트 영역 -->
-        <div class="workListWrapper">
-  
-          <!-- 부트 스트랩 카드 -->
-  
-          <!-- 작업 완료 -->
-          <div class="card mb-3 border-success border-2">
-  
-            <div class="row  g-0 align-items-center">
-  
-              <div class="col-md-4 col-sm-4 col-xs-4 text-center">
-                <img src="../public/images/car-sample2.jpg" class="img-thumbnail rounded-start" alt="...">
-              </div>
-  
-              <div class="col-md-8 col-sm-8 col-xs-8">
-                <div class="card-header">
-                  <!-- 차량 번호 -->
-                  <h5 class="card-title h3 text-center">
-                    차량 번호 : 123가1234
-                  </h5>
-                </div>
-                <div class="card-body">
-                  <!-- 차량 정보 테이블 -->
-                  <table class="table no-margin no-padding text-center carInfo-table">
-                    <tr>
-                      <td>세차구분</td>
-                      <td>내부/외부</td>
-                    </tr>
-                    <tr>
-                      <td>소독</td>
-                      <td>해당없음</td>
-                    </tr>
-                    <tr>
-                      <td>광택</td>
-                      <td>해당없음</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2"><div class="btn btn-success disabled clean-status clean-complete">작업완료</div></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-  
-            </div>
-  
-          </div>
-  
-  
-          <!-- 작업 미완료 -->
-          <div class="card mb-3 border-danger border-2">
-            <div class="row g-0 align-items-center">
-              <div class="col-md-4 col-sm-4 col-xs-4 text-center">
-                <img src="../public/images/car-sample.jpg" class="img-thumbnail rounded-start" alt="...">
-              </div>
-              <div class="col-md-8 col-sm-8 col-xs-8">
-                <div class="card-header">
-                  <!-- 차량 번호 -->
-                  <h5 class="card-title h3 text-center">
-                    차량 번호 : 123가1234
-                  </h5>
-                </div>
-                <div class="card-body">
-                  <!-- 차량 정보 테이블 -->
-                  <table class="table no-margin no-padding text-center carInfo-table">
-                    <tr>
-                      <td>세차구분</td>
-                      <td>내부</td>
-                    </tr>
-                    <tr>
-                      <td>소독</td>
-                      <td>완료</td>
-                    </tr>
-                    <tr>
-                      <td>광택</td>
-                      <td>완료</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2"><div class="btn btn-danger clean-status clean-complete" onclick="location.href='workDetail.html'">사진촬영</div></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          
-        </div>
-        
-        <!-- 작업 완료 버튼? + 관리자에게 결과 제출 -->
-        <!-- 하단 고정 -->
-        <div class="workSubmitBtn text-center mx-auto fixed-bottom" onclick="workSubmit();">
-          제출하기
-        </div>
+      
+      <!-- 로그인한 매니저의 작업 목록 출력 -->
+      <div class="container myWorkList">
+
+        <h1 class="h2" style="user-select: none; letter-spacing: 0.2rem;">진행 작업 목록</h1>
+
+        <!-- 작업 시작하기 버튼 -->
+        <button class="startBtn" style="letter-spacing: 0.2rem; margin: 1.5rem;" type="button" onclick="location.href='workMain.html'">
+          새로운 작업
+        </button>
+
+
+        <div class="">
+
+
+          <table class="table table-bordered table-striped workListTable">
+
+            <!-- 표 상단 -->
+            <thead>
+              <th>번호</th>
+              <th>등록일</th>
+              <th>고객명</th>
+              <th>차량번호</th>
+              <th>상태</th>
+            </thead>
     
-        
-  
-  
+            <!-- 표 본문 -->
+            <tbody>
+              
+              <tr>
+                <td>1</td>
+                <td>22-03-02 13:10</td>
+                <td>쿠팡</td>
+                <td>123가 4567</td>
+                <td class="workStatus">작업중</td>
+              </tr>
+              
+            </tbody>
+    
+          </table>
+
+        </div>
+
+
       </div>
 
     </div>
 
-
-    
     
   </div>
 
@@ -171,7 +106,6 @@
 
   <!-- User Script -->
   <script src="../public/js/main.js"></script>
-  <script src="../public/js/workList.js"></script>
 
 </body>
 </html>

@@ -114,7 +114,7 @@ function startCleaning(){
 
   if(confirm('시작버튼을 누른 후에는 수정 및 제거가 불가능합니다.')){
     
-    location.href = 'workList.html';
+    location.href = 'carList.html';
 
   }
 
