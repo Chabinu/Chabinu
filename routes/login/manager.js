@@ -19,11 +19,11 @@ router.get('/', function(req, res, next) {
 
 });
 
-// router.post('/', passport.authenticate('local', {failureRedirect : '/fail'}), function(req, res, next) {
+router.post('/', passport.authenticate('local', {failureRedirect : '/fail'}), function(req, res, next) {
 
-//   res.redirect('/');
+  res.redirect('/main');
 
-// });
+});
 
 
 // passport.use(new LocalStrategy({
