@@ -11,10 +11,7 @@ const mysql = require('mysql');
 
 
 // 미들웨어 변수로 정의 --------------------------------------------------------------------------
-const indexRouter = require('./routes/index');
-const managerLoginRouter = require('./routes/login/manager');
-
-
+const managerRouter = require('./routes/managers/index');
 
 const app = express();
 
@@ -32,10 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 미들웨어 사용 (자바 Servlet 느낌 / 요청주소에 따른 라우터(컨트롤러) 호출) --------------------------------------------------------------------------
 
-app.use('/', indexRouter);
-
-// 주소 '/login'으로 접근 시 loginRouter를 사용한다.
-app.use('/login', managerLoginRouter);
+/* 매니저 컴포넌트 */
+app.use('/', managerRouter);
 
 
 

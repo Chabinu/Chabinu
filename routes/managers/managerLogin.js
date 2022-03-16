@@ -2,13 +2,6 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../../dbconfig');
 
-// const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
-// const session = require('express-session');
-
-// app.use(session({secret : '비밀코드', resave : true, saveUninitialized: false}));
-// app.use(passport.initialize());
-// app.use(passport.session()); 
 
 // /login
 
@@ -19,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.post('/', passport.authenticate('local', {failureRedirect : '/fail'}), function(req, res, next) {
+router.post('/',function(req, res, next) {
 
   res.redirect('/main');
 
