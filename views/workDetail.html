@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>차비누 매니저</title>
+
+  <!-- BootStrap v5.1 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+  
+  <!-- <link rel="stylesheet" href="/stylesheets/commonStyle.css"> -->
+  <!-- <link rel="stylesheet" href="../../public/stylesheets/style.css"> -->
+
+  <link rel="stylesheet" href="../public/stylesheets/commonStyle.css">
+  <link rel="stylesheet" href="../public/stylesheets/manager.css">
+
+</head>
+<body>
+
+  <div class="container-fluid no-padding no-margin">
+
+    <!-- navbar 헤더 -->
+    <nav class="navbar">
+      
+      <!-- navbar 회사로고 -->
+      <div class="navbarHeader">
+        <div class="navbar__logo">
+          <a href="mainPage.html">CHABINU</a>
+        </div>
+  
+        <a href="#" class="navbar__toggleBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
+        </a>
+      </div>
+
+      <!-- navbar 메뉴 -->
+      <ul class="navbar__menu">
+        <li><a href="mainPage.html">홈으로</a></li>
+        <li><a href="workMain.html">새작업</a></li>
+        <li><a href="workList.html">작업중</a></li>
+        <li><a href="workFinishList.html">작업완료</a></li>
+        <li><a href="loginPage.html">로그아웃</a></li>
+      </ul>
+
+    </nav>
+
+    <!-- 내용 영역 -->
+    <div class="mainContainer">
+
+      <!-- 세차 상세 페이지 (사진 찍기) -->
+  
+      <!-- 사진 영역 -->
+      <div class="photoArea">
+  
+        <!-- 세차 전 사진 -->
+        <div class="">
+  
+          <p>세차 전</p>
+  
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+            </div>
+  
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+  
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+  
+            <!-- If we need scrollbar -->
+            <!-- <div class="swiper-scrollbar"></div> -->
+          </div>
+  
+  
+  
+          <label for="beforePhoto">
+            <div class="d-flex align-items-center justify-content-center border border-primary border-3" style="width: 100px; height: 60px;">
+              촬영하기
+            </div>
+          </label>
+  
+          <input class="d-none" type="file" id="beforePhoto" name="beforePhoto" capture="camera" accept="image/*" onclick="uploadPhoto(event);"/>
+  
+        </div>
+        
+        <!-- 세차 후 사진 -->
+        <div>
+          <p>세차 후</p>
+          
+          <!-- Slider main container -->
+          <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">Slide 1</div>
+              <div class="swiper-slide">Slide 2</div>
+              <div class="swiper-slide">Slide 3</div>
+            </div>
+  
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+  
+          </div>
+  
+  
+          <label for="afterPhoto">
+            <div class="d-flex align-items-center justify-content-center border border-primary border-3" style="width: 100px; height: 60px;">
+              촬영하기
+            </div>
+          </label>
+  
+          <input class="d-none" type="file" id="afterPhoto" name="afterPhoto" capture="camera" accept="image/*" onchange="uploadPhoto(event);"/>
+  
+        </div>
+  
+  
+        <!-- 카메라 스크립트 -->
+        <script>
+  
+          function uploadPhoto(e){
+            
+            var camera = e.target;
+  
+  
+            console.log(e.target);
+            
+            var photo = camera.previousElementSibling.previousElementSibling.children;
+            var file = e.target.files[0];
+            console.log(file);
+  
+            photo.src = URL.createObjectURL(file);
+            console.log(photo);
+  
+  
+          };
+  
+          // var camera = document.getElementById('camera');
+          // var photoFrame = document.getElementById('photoFrame');
+    
+          // camera.addEventListener('change', function(e){
+          //   var file = e.target.files[0];
+    
+          //   photoFrame.src = URL.createObjectURL(file);
+          // });
+    
+        </script>
+  
+      </div>
+
+    </div>
+
+
+
+
+    
+
+    
+    
+    
+  </div>
+
+
+
+  <!-- BootStrap v5.1 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+
+  <!-- User Script -->
+  <script src="../public/js/main.js"></script>
+
+  <script>
+
+    // 현재 시간 구하는 함수
+function getCurrentDate(){
+  let date = new Date();
+  
+  let year = date.getFullYear.toString();
+  
+  let month = date.getMonth + 1;
+  month = month < 10 ? '0' + month.toString() : month.toString();
+
+  let day = date.getDate();
+  day = day < 10 ? '0' + day.toString() : day.toString();
+  
+  let hour = date.getHours();
+  hour = hour < 10 ? '0' + hour.toString() : hour.toString();
+
+  let minutes = date.getMinutes();
+  minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+
+  let seconds = date.getSeconds();
+  seconds = seconds < 10 ? '0' + seconds.toString() : seconds.toString();
+
+  return year + month + day + hour + minutes + seconds;
+}
+
+  </script>
+
+</body>
+</html>
