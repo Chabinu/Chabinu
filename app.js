@@ -4,12 +4,37 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const dotenv = require('dotenv');
 const path = require('path');
+const nunjucks = require('nunjucks');
+
+const { sequelize } = require('./models');
 
 dotenv.config();
+
+// 라우터 변수 설정
+const indexRouter = require('./routes');
+const managerRouter = require('./routes/manager');
+
 
 const app = express();
 
 app.set('port', process.env.PORT || 3000);
+app.set('view engine' , 'html');
+
+// 넌적스 (view template)
+nunjucks.configure('views', {
+  express : app,
+  watch : true,
+});
+
+// 시퀄라이즈(db 연결 라이브러리)
+sequelize.sync({ force : false})
+  .then(() => {
+    console.log('데이터베이스 연결 성공');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
 
 // 미들웨어
 app.use(morgan('dev'));
@@ -27,6 +52,11 @@ app.use(session({
   },
   name : 'session-cookie',
 }));
+
+// 라우터 미들웨어 설정
+app.use('/', indexRouter);
+app.use('/manager', managerRouter);
+
 
 
 // 멀터 미들웨어
@@ -59,28 +89,28 @@ const upload = multer({
 })
 
 // 현재 시간 구하는 함수
-function getCurrentDate(){
-  let date = new Date();
+// function getCurrentDate(){
+//   let date = new Date();
   
-  let year = date.getFullYear.toString();
+//   let year = date.getFullYear.toString();
   
-  let month = date.getMonth + 1;
-  month = month < 10 ? '0' + month.toString() : month.toString();
+//   let month = date.getMonth + 1;
+//   month = month < 10 ? '0' + month.toString() : month.toString();
 
-  let day = date.getDate();
-  day = day < 10 ? '0' + day.toString() : day.toString();
+//   let day = date.getDate();
+//   day = day < 10 ? '0' + day.toString() : day.toString();
   
-  let hour = date.getHours();
-  hour = hour < 10 ? '0' + hour.toString() : hour.toString();
+//   let hour = date.getHours();
+//   hour = hour < 10 ? '0' + hour.toString() : hour.toString();
 
-  let minutes = date.getMinutes();
-  minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
+//   let minutes = date.getMinutes();
+//   minutes = minutes < 10 ? '0' + minutes.toString() : minutes.toString();
 
-  let seconds = date.getSeconds();
-  seconds = seconds < 10 ? '0' + seconds.toString() : seconds.toString();
+//   let seconds = date.getSeconds();
+//   seconds = seconds < 10 ? '0' + seconds.toString() : seconds.toString();
 
-  return year + month + day + hour + minutes + seconds;
-}
+//   return year + month + day + hour + minutes + seconds;
+// }
 
 app.get('/upload', (req, res) => {
   res.sendFile(path.join(__dirname, '/views/multerTest.html'));
@@ -96,29 +126,16 @@ app.post('/upload',
 
 
 app.use((req, res, next) => {
-  console.log('모든 요청에 실행');
-  next();
+  const error = new Error(`${req.method} ${req.url} 라우터가 존재하지 않습니다.`)
+  error.status = 404;
+  next(error);
 });
-
-app.get('/', (req, res, next) => {
-  // res.sendFile(path.join(__dirname, '/views/mainPage.html'));
-  console.log('GET / 요청 실행');
-  next();
-}, (req, res) => {
-  throw new Error('에러는 에러 처리 미들웨어로 이동');
-});
-
-// app.get('/photo', (req, res, next) => {
-//   res.sendFile(path.join(__dirname, '/views/workDetail.html'));
-//   console.log('GET / 요청 실행');
-//   next();
-// }, (req, res) => {
-//   throw new Error('에러는 에러 처리 미들웨어로 이동');
-// });
 
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).send(err.message);
+  res.locals.message = err.message;
+  res.locals.error = process.env.NODE_ENV !== 'production' ? err : {};
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 app.listen(app.get('port'), ()=>{

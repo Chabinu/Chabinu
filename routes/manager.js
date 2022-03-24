@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../../dbconfig');
 
 
 // /login
@@ -8,7 +7,7 @@ const connection = require('../../dbconfig');
 
 router.get('/', function(req, res, next) {
 
-  res.render('./manager/managerLogin.ejs');
+  res.render('./managerLogin.html', {title : 'chabinu'});
 
 });
 
