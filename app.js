@@ -5,14 +5,26 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const path = require('path');
 const nunjucks = require('nunjucks');
+const mysql = require('mysql2');
 
-const { sequelize } = require('./models');
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password : 'chabinuadmin1234!',
+  database: 'test',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+// const { sequelize } = require('./models');
 
 dotenv.config();
 
 // 라우터 변수 설정
 const indexRouter = require('./routes');
 const managerRouter = require('./routes/manager');
+const photoRouter = require('./routes/photo');
 
 
 const app = express();
@@ -27,13 +39,13 @@ nunjucks.configure('views', {
 });
 
 // 시퀄라이즈(db 연결 라이브러리)
-sequelize.sync({ force : false})
-  .then(() => {
-    console.log('데이터베이스 연결 성공');
-  })
-  .catch((err) => {
-    console.error(err);
-  });
+// sequelize.sync({ force : false})
+//   .then(() => {
+//     console.log('데이터베이스 연결 성공');
+//   })
+//   .catch((err) => {
+//     console.error(err);
+//   });
 
 
 // 미들웨어
@@ -56,37 +68,38 @@ app.use(session({
 // 라우터 미들웨어 설정
 app.use('/', indexRouter);
 app.use('/manager', managerRouter);
+app.use('/photo', photoRouter)
 
 
 
 // 멀터 미들웨어
 
-const multer = require('multer');
-const fs = require('fs');
+// const multer = require('multer');
+// const fs = require('fs');
 
-try{
-  fs.readdirSync('uploads');
-}catch(error){
-  console.error('uploads 폴더가 없어 생성합니다.');
-  fs.mkdirSync('uploads');
-}
+// try{
+//   fs.readdirSync('uploads');
+// }catch(error){
+//   console.error('uploads 폴더가 없어 생성합니다.');
+//   fs.mkdirSync('uploads');
+// }
 
-const upload = multer({
-  storage : multer.diskStorage({
-    destination(req, file, done){
-      done(null, 'uploads/');
-    },
-    // 저장 파일 명 (originalname + 차량번호 + 시간 + 확장자로 만들기)
-    filename(req, file, done){
-      const ext = path.extname(file.originalname);
-      done(null, path.basename(file.originalname, ext) + '_carNum' + getCurrentDate() + ext);
-      console.log('파일명' + path.basename(file.originalname, ext));
-      console.log('시간' + Date.now());
-    },
-  }),
-  // 용량 제한 10mb
-  limits : {fileSize : 10 * 1024 * 1024},
-})
+// const upload = multer({
+//   storage : multer.diskStorage({
+//     destination(req, file, done){
+//       done(null, 'uploads/');
+//     },
+//     // 저장 파일 명 (originalname + 차량번호 + 시간 + 확장자로 만들기)
+//     filename(req, file, done){
+//       const ext = path.extname(file.originalname);
+//       done(null, path.basename(file.originalname, ext) + '_carNum' + /*getCurrentDate() + */ ext);
+//     },
+//   }),
+//   // 용량 제한 10mb
+//   limits : {fileSize : 10 * 1024 * 1024},
+// })
+
+
 
 // 현재 시간 구하는 함수
 // function getCurrentDate(){
@@ -112,17 +125,19 @@ const upload = multer({
 //   return year + month + day + hour + minutes + seconds;
 // }
 
-app.get('/upload', (req, res) => {
-  res.sendFile(path.join(__dirname, '/views/multerTest.html'));
-});
 
-app.post('/upload', 
-  upload.fields([{ name : 'image1'} , { name : 'image2'} , { name : 'image3'} , { name : 'image4'}]),
-  (req, res) => {
-    console.log(req.files, req.body);
-    res.send('ok');
-  }
-);
+
+// app.get('/upload', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/views/multerTest.html'));
+// });
+
+// app.post('/upload', 
+//   upload.fields([{ name : 'image1'} , { name : 'image2'} , { name : 'image3'} , { name : 'image4'}]),
+//   (req, res) => {
+//     console.log(req.files, req.body);
+//     res.send('업로드 성공!');
+//   }
+// );
 
 
 app.use((req, res, next) => {

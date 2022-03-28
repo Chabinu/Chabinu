@@ -22,31 +22,6 @@
 
   <div class="container-fluid no-padding no-margin">
 
-    <!-- navbar 헤더 -->
-    <nav class="navbar">
-      
-      <!-- navbar 회사로고 -->
-      <div class="navbarHeader">
-        <div class="navbar__logo">
-          <a href="mainPage.html">CHABINU</a>
-        </div>
-  
-        <a href="#" class="navbar__toggleBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" fill="#FDFDFD"/></svg>
-        </a>
-      </div>
-
-      <!-- navbar 메뉴 -->
-      <ul class="navbar__menu">
-        <li><a href="mainPage.html">홈으로</a></li>
-        <li><a href="workMain.html">새작업</a></li>
-        <li><a href="workList.html">작업중</a></li>
-        <li><a href="workFinishList.html">작업완료</a></li>
-        <li><a href="loginPage.html">로그아웃</a></li>
-      </ul>
-
-    </nav>
-
     <!-- 내용 영역 -->
     <div class="mainContainer">
 
@@ -56,7 +31,7 @@
       <div class="photoArea">
   
         <!-- 세차 전 사진 -->
-        <div class="">
+        <!-- <div class="">
   
           <p>세차 전</p>
   
@@ -67,18 +42,26 @@
           </label>
           <input class="d-none" type="file" id="beforePhoto" name="beforePhoto" capture="camera" accept="image/*" onclick="uploadPhoto(event);"/>
   
-        </div>
+        </div> -->
 
         <!-- multer 테스트 -->
         <div>
-          <form action="/upload" method="post" enctype="multipart/form-data">
+          <form action="/photo/image" method="post" enctype="multipart/form-data">
 
-            <input type="file" name="image1" />
-            <input type="file" name="image2" />
-            <input type="file" name="image3" />
-            <input type="file" name="image4" />
+            <div>
+              <span>차량번호</span>
+              <input type="text" name="carNumber"/>
+            </div>
 
-            <button type="submit">업로드</button>
+            <div>
+              <span>사진추가</span>
+              <input type="file" name="image1"/>
+              <!-- <input type="file" name="image2" />
+              <input type="file" name="image3" />
+              <input type="file" name="image4" /> -->
+            </div>
+
+            <button type="submit">제출</button>
 
           </form>
         </div>
