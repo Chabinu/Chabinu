@@ -1,0 +1,451 @@
+
+/* ------------------- 공통 부분 ------------------- */
+
+/* 버튼 */
+.c-btn{
+  min-width: 150px;
+  max-width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+
+  margin: 20px;
+  margin-bottom: 0;
+
+  font-size: 18px;
+
+  background-color: lightgray;
+}
+
+/* 버튼 hover 시 */
+.c-btn:hover{
+  background-color: gray;
+  color: #FFFFFF;
+}
+
+th, td{
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
+
+
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 768px) {
+
+
+}
+
+
+/* 헤더 밑 본문 영역 */
+.mainContainer{
+  padding-top: 60px;
+}
+
+/* ------------------- 매니저 메인페이지 (mainPage) ------------------- */
+
+/* 공지사항 + 작업시작 버튼 영역 */
+.startBtn{
+  min-width: 150px;
+  max-width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  border: none;
+
+  margin: 20px;
+  margin-bottom: 0;
+
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+
+  background-color: #1A374D;
+}
+.startBtn:hover{
+  background-color: #406882;
+}
+
+.noticeTitle{ color: #406882; margin: 20px 0; font-weight: 600; user-select: none;}
+
+.noticeWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: auto;
+  padding: 30px;
+}
+.noticeWrapper p{
+  padding: 10px;
+}
+
+.noticeArea{padding: 10px; margin: auto; text-align: center;}
+.noticeTable{
+  max-width: 800px;
+  margin: auto;
+  table-layout: fixed;
+  padding: 1.5rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.boardTitle{
+  text-align: start;
+}
+
+.warningArea p{
+  line-height: 1.5;
+}
+
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 499px) {
+
+  .noticeTable{
+    font-size: 0.8rem;
+  }
+
+  .workCategory{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+/* ------------------- 작업 목록페이지(workList) ------------------- */
+
+/* 테이블의 행 전체에 링크 걸기 (1. td마다 a링크 걸기) */
+
+/* 매니저 작업 목록 영역 */
+.myWorkList{
+
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px;
+
+}
+
+/* 작업중 */
+.workStatus{
+  background-color: #ffca2c !important;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.workStatus2{
+  background-color:  #198754!important;
+  color: #FDFDFD !important;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+}
+
+.workListTable thead th{
+  user-select: none;
+}
+
+
+/* ------------------- 작업 메인페이지(workMain) ------------------- */
+
+
+/* 작업 카테고리 */
+.categoryMenu{
+  margin: 15px;
+  width: 200px;
+  height: 40px;
+  background-color: lightgray;
+  border-radius: 5px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.categoryMenu > span{
+  cursor: pointer;
+  user-select: none;
+}
+.categoryMenu:hover{
+  background-color: gray;
+  color: #FFFFFF;
+}
+.categoryWrapper{
+  margin-top: 100px;
+}
+.categoryMenu > a{ display: block; width: 100%; height: 100%; line-height: 38px;}
+.categoryMenu > a:hover{color: white;}
+.biz-wrapper a:hover{color: white;}
+.biz-wrapper{
+  width: 200px;
+  background-color: lightgray;
+  margin-bottom: 15px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.biz-wrapper li{width: 100%; height: 40px;}
+.biz-company{
+  display: block;
+  height: 100%; width: 100%;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 38px;
+}
+.biz-wrapper li:hover{
+  background-color: gray;
+}
+
+/* 콜랩스 메뉴 */
+.collpase-true{
+  margin-bottom: 0;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.display-none{display: none;}
+
+
+/* ------------------- 작업 세팅 페이지(workSetting) ------------------- */
+
+
+.workInfo{
+  width: 80%;
+  min-width: 300px;
+  max-width: 800px;
+  margin: auto;
+}
+
+
+/* 차량 등록 메뉴 */
+.cleaningMenu{
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cleaningMenu td{
+  padding: 10px;
+}
+
+/* 작업 수정, 제거 버튼 */
+.carBtn{
+  height: 50px;
+  border: none;
+}
+
+.car-item{
+  margin: auto; width: 360px; height: 100px; border: 1px solid black;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+#add-car-button{
+  width: 50%; max-width: 300px; min-width: 100px;
+}
+
+
+
+/* ------------------- 작업 수행 페이지(carListPage) ------------------- */
+
+/* 추가해 놓은 차량 정보를 기반으로 리스트 페이지 로드  */
+/* 해당 박스를 클릭하면 사진 업로드가 가능한 세차 상세 페이지로 이동 */
+
+/* 작업 페이지 전체 */
+.workListArea{
+  border: 1px solid black;
+  
+  width: 80%;
+  max-width: 800px;
+  min-height: 500px;
+  margin: auto;
+  padding: 10px;
+}
+
+/* 대분류 카테고리 (법인, 개인, 행사) */
+.workCategory{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  user-select: none;
+}
+
+/* 작업 리스트 영역 */
+.workListWrapper{
+  width: 100%;
+}
+
+/* 차량 정보 낱개 영역 */
+.workBox div{
+  border: 1px solid black;
+}
+
+.photoSquare{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.photoSquare > img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.carInfo-table{
+  table-layout: fixed;
+}
+
+.clean-status{
+  height: 100%;
+}
+
+.workSubmitBtn{
+  margin-top: 20px; width: 100%; height: 50px; font-size: 20px; font-weight: bold; letter-spacing: 0.5rem; line-height: 48px; cursor: pointer; background-color: lightgray;
+}
+
+.workSubmitBtn:hover{
+  color: #FDFDFD;
+  background-color: gray;
+}
+
+/* 모바일 반응형 영역 */
+@media screen and (max-width : 768px) {
+
+  .workListArea{
+    width: 100%;
+  }
+
+  .workCategory{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+
+
+.swiper{
+  width: 16rem;
+  height: 9rem;
+  border: 1px solid black;
+}
+
+.swiper-slide > img{
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+
+/* workDetail Responsive CSS */
+@media screen and (max-width : 768px) {
+
+  .photoArea > div{
+    text-align: center;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ------------------- 세차 상세 페이지(workDetail) ------------------- */
+
+/* 사진 업로드, 캐러셀(슬라이드), 파일명 저장 잘 하기, 법인 종류별로 요구 사진 다르게 */
+
+/* 사진 예시 미리보기 */
+
+textarea{
+  outline: none;
+}
+
+
+
+
+/* work1.html */
+
+.deleteImg {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background-color: rgba(50, 50, 50, 0.2);
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 15px;
+	font-weight: bold;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.deleteImg:hover {
+	background-color: rgba(50, 50, 50, 0.3);
+}
+
+.boardImg {
+	cursor: pointer;
+	width: 200px;
+	height: 200px;
+	border: 1px solid #ced4da;
+	position: relative;
+}
+
+.thubnail {
+	width: 300px;
+	height: 300px;
+}
+
+.boardImg>img {
+	max-width: 100%;
+	max-height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.insert-label {
+	display: inline-block;
+	width: 80px;
+	line-height: 40px
+}
+
+#fileArea {
+	display: none;
+}
+
+.boardImg a{
+	position : absolute;
+	bottom: 0;
+	right: 0;
+}
+
+
+
+
+
+
+
+
+
+/* 사진 등록 페이지 */
+.beforePhoto{
+  display: flex;
+  flex: 0 0 150px;
+  align-items: center;
+  justify-content: center;
+}

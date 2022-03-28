@@ -45,13 +45,13 @@ const upload = multer({
 const router = express.Router();
 
 
-router.get('/image', (req, res, next) => {
+router.get('/', (req, res, next) => {
 
   res.render('multerTest');
 
 });
 
-router.post('/image', upload.single('image1'), async (req, res, next)=> {
+router.post('/upload', upload.single('image1'), async (req, res, next)=> {
   
   pool.query(
     'INSERT INTO `images` (img_path, img_name, img_original, wash_no) VALUES ("/uploads/", "wash1", "20220325", 3)'
