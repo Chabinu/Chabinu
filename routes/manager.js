@@ -1,23 +1,24 @@
 const express = require('express');
+
 const router = express.Router();
 
 
 // /login
-
-
-router.get('/', function(req, res, next) {
-
-  res.render('./managerLogin.html', {title : 'chabinu'});
-
+router.get('/', async (req, res, next) => {
+  try{
+    res.render('managerLogin', {title : 'chabinu'});
+  }catch(error){
+    next(error);
+  }
 });
 
-router.post('/',function(req, res, next) {
-
-  res.redirect('/main');
-
+router.post('/', async (req, res, next) => {
+  try{
+    res.redirect('/main');
+  }catch(error){
+    next(error);
+  }
 });
-
-
 
 
 

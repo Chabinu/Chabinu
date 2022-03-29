@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="/stylesheets/manager.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid no-padding no-margin vh-100">
+
+  {% include "navbar.html" %}
+
+  <div class="mainContainer">
+    
+    <!-- 로그인한 매니저의 작업 목록 출력 -->
+    <div class="container myWorkList">
+
+      <h1 class="h2" style="user-select: none; letter-spacing: 0.2rem;">진행 작업 목록</h1>
+
+      <!-- 작업 시작하기 버튼 -->
+      <button class="startBtn" style="letter-spacing: 0.2rem; margin: 1.5rem;" type="button" onclick="location.href='/work/main'">
+        새로운 작업
+      </button>
+
+
+      <div class="">
+
+
+        <table class="table table-bordered table-striped workListTable">
+
+          <!-- 표 상단 -->
+          <thead>
+            <th>번호</th>
+            <th>등록일</th>
+            <th>고객명</th>
+            <th>차량번호</th>
+            <th>상태</th>
+          </thead>
+  
+          <!-- 표 본문 -->
+          <tbody>
+            
+            <tr>
+              <td>1</td>
+              <td>22-03-02 13:10</td>
+              <td>쿠팡</td>
+              <td>123가 4567</td>
+              <td class="workStatus">작업중</td>
+            </tr>
+            
+          </tbody>
+  
+        </table>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+  
+</div>
+{% endblock %}
+
+
+{% block script %}
+<!-- User Script -->
+<script src="../javascripts/main.js"></script>
+{% endblock %}

@@ -2,7 +2,7 @@
 {% extends 'layout.html' %}
 
 {% block style %}
-<link rel="stylesheet" href="stylesheets/manager.css">
+<link rel="stylesheet" href="/stylesheets/manager.css">
 {% endblock %}
 
 {% block content %}
@@ -13,11 +13,15 @@
   
   <div class="mainContainer">
 
-    <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+    
     
   </div>
 
 </div>
 
+{% endblock %}
+
+{% block script %}
+<!-- User Script -->
+<script src="../javascripts/main.js"></script>
 {% endblock %}

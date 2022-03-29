@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="/stylesheets/manager.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid no-padding no-margin vh-100">
+
+  {% include "navbar.html" %}
+  
+  <div class="mainContainer">
+
+    <!-- 작업 선택 박스 영역 -->
+    <div class="categoryWrapper d-flex flex-column align-items-center text-center">
+  
+      <div class="mb-4">
+
+        <h2 class="h2">
+          작업 선택
+        </h2>
+
+      </div>
+  
+      <div id="biz-menu" class="categoryMenu collapsible d-flex">
+        <span style="margin-right: 5px;">법인고객</span><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
+      </div>
+      <div class="biz-wrapper display-none">
+        <ul class="biz-company-list">
+          <li><a class="biz-company" onclick="workSetting('biz');">일반 법인</a></li>
+          <li><a class="biz-company" onclick="workSetting('coupang');">Coupang(쿠팡)</a></li>
+          <li><a class="biz-company" onclick="workSetting('homeplus');">HomePlus(홈플러스)</a></li>
+          <li><a class="biz-company" onclick="workSetting('redcap');">RedCap(레드캡)</a></li>
+        </ul>
+      </div>
+
+      <div class="categoryMenu">
+        <a onclick="workSetting('basic');">개인고객</a>
+      </div>
+
+      <div class="categoryMenu">
+        <a onclick="workSetting('event');">행사</a>
+      </div>
+  
+    </div>
+    
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<!-- User Script -->
+<script src="../javascripts/main.js"></script>
+<script src="../javascripts/workMain.js"></script>
+{% endblock %}

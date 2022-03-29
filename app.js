@@ -23,6 +23,7 @@ dotenv.config();
 
 // 라우터 변수 설정
 const indexRouter = require('./routes');
+const workRouter = require('./routes/work');
 const managerRouter = require('./routes/manager');
 const photoRouter = require('./routes/photo');
 
@@ -67,8 +68,9 @@ app.use(session({
 
 // 라우터 미들웨어 설정
 app.use('/', indexRouter);
+app.use('/work', workRouter);
 app.use('/manager', managerRouter);
-app.use('/photo', photoRouter)
+app.use('/photo', photoRouter);
 
 
 
